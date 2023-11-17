@@ -1,0 +1,111 @@
+Started by user [8mha:////4LGto8B2eip1MSkvMa4E0mMHCrafHvCgDPwHGORpiju/AAAAnB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAylEgYB/dLi1CL9krT8nMyy1MyiRAC5HLp1xQAAAA==[0mThiago Fernandes da Silva Oliveira
+[8mha:////4AI5p15/B46iyeAgM6C7ZN9cOIwjm16Ei/9ozSsL8gpTAAAAoh+LCAAAAAAAAP9tjTEOwjAQBM8BClpKHuFItIiK1krDC0x8GCfWnbEdkooX8TX+gCESFVvtrLSa5wtWKcKBo5UdUu8otU4GP9jS5Mixv3geZcdn2TIl9igbHBs2eJyx4YwwR1SwULBGaj0nRzbDRnX6rmuvydanHMu2V1A5c4MHCFXMWcf8hSnC9jqYxPTz/BXAFEIGsfuclm8zQVqFvQAAAA==[0m[Pipeline] Start of Pipeline
+[8mha:////4F9+h+uHqYsTCiRhILoNaxE7sRTLaZm5WKPnZ86sz/Z0AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycohUghExsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jduZBmjwAAAAA==[0m[Pipeline] node
+Running on [8mha:////4Jecca/0t8uO8G/QdzNMwO1KULl3qhkAjqlIGh0aPUgDAAAAoR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZR/eT83ILSktQifY2k0sycEt3MPE19AHHxbH3KAAAA[0mJenkins in /var/lib/jenkins/workspace/Recursos/DevOps Banpará/Jenkins/Backup
+[8mha:////4E5SG009XtlxUGWTkizGWMsSDppHnvesMcvv28doDz5vAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gA0xsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jfoP95RwAAAAA==[0m[Pipeline] {
+[8mha:////4IE2W4q5b2VcS8vRmJKLoFMFdE3R9tZi/tI8G/QxPBwqAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gQkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jc09154wAAAAA==[0m[Pipeline] stage
+[8mha:////4B40w2x3VoQurmNpypPktkunePAA5hVtdP4og8OiIjCjAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0ggUxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jek7ggRwAAAAA==[0m[Pipeline] { (Obter jenkins.xml)
+[8mha:////4OmbsJQbWGLyCRxb5lmzJtSfL6b1BZT7vM+PoO3vrKs9AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gwExsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jcChmMxwAAAAA==[0m[Pipeline] script
+[8mha:////4LZlac/44FIeNIhezDJFwMb/jNy/fvALa0d3LuTE7JtTAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0BAkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jfpX/cvwAAAAA==[0m[Pipeline] {
+[8mha:////4Hasa09AHnj75WZwfcJ4um1SjDCFH4ugQb0EiYSfuQLmAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbaoyVLaHxBMgiwpL/WWDdrTyRV/MOEjexcpJJ5k3zXm9Y5wQnSpZ7g73DrB2PYbR18YlSfws0cU9XrgkzBcOlmSR15rygpGJgCWtgJWBjUAfKDm2BrfDqodqg0LaXkup3FNC4boAnMFHNRaXyhTnB7j52mfDn+SuAORZg+9pD/AAeoCAqvAAAAA==[0m[Pipeline] sh
++ pwd
+/var/lib/jenkins/workspace/Recursos/DevOps Banpará/Jenkins/Backup
+[8mha:////4AV5YrpTAdGVi+4W4t3GNF8AFAFYelaF1Dy9+PWf7jZZAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMKBDglR0VppeIFJjHFi3QX7QlLxIr7GH4iIRMVWO9PM641lijhydKqx1HpKlVdd6N301MCxvQYeVMMXVTElDlaVdii5tqcZSxaLeVmOhcbKUhU4eXKCtW7MwxTBkCvOEid30Mh9fccTmZ7KYqJ8YYzY3Po6Mf06fwMYO0G2F+S7bfcBITL9lL0AAAA=[0m[Pipeline] sh
++ ls backup
+FULL-2023-10-11_15-40
+backup.xml
+com.cloudbees.hudson.plugins.folder.config.AbstractFolderConfiguration.xml
+com.dabsquared.gitlabjenkins.GitLabPushTrigger.xml
+com.dabsquared.gitlabjenkins.connection.GitLabConnectionConfig.xml
+config.xml
+credentials-configuration.xml
+credentials.xml
+github-plugin-configuration.xml
+hudson.model.UpdateCenter.xml
+hudson.plugins.build_timeout.global.GlobalTimeOutConfiguration.xml
+hudson.plugins.build_timeout.operations.BuildStepOperation.xml
+hudson.plugins.emailext.ExtendedEmailPublisher.xml
+hudson.plugins.git.GitSCM.xml
+hudson.plugins.git.GitTool.xml
+hudson.plugins.gradle.Gradle.xml
+hudson.plugins.gradle.enriched.EnrichedSummaryConfig.xml
+hudson.plugins.gradle.injection.InjectionConfig.xml
+hudson.plugins.timestamper.TimestamperConfig.xml
+hudson.tasks.Ant.xml
+hudson.tasks.Mailer.xml
+hudson.tasks.Maven.xml
+hudson.tasks.Shell.xml
+hudson.triggers.SCMTrigger.xml
+installedPlugins.xml
+io.jenkins.plugins.gitlabserverconfig.servers.GitLabServers.xml
+io.jenkins.plugins.junit.storage.JunitTestResultStorageConfiguration.xml
+jenkins.fingerprints.GlobalFingerprintConfiguration.xml
+jenkins.metrics.api.MetricsAccessKey.xml
+jenkins.model.ArtifactManagerConfiguration.xml
+jenkins.model.GlobalBuildDiscarderConfiguration.xml
+jenkins.model.JenkinsLocationConfiguration.xml
+jenkins.mvn.GlobalMavenConfig.xml
+jenkins.plugins.git.GitHooksConfiguration.xml
+jenkins.security.QueueItemAuthenticatorConfiguration.xml
+jenkins.security.ResourceDomainConfiguration.xml
+jenkins.security.UpdateSiteWarningsConfiguration.xml
+jenkins.security.apitoken.ApiTokenPropertyConfiguration.xml
+jenkins.tasks.filters.EnvVarsFilterGlobalConfiguration.xml
+jenkins.telemetry.Correlator.xml
+jobs
+nodeMonitors.xml
+org.jenkinsci.plugins.displayurlapi.DefaultDisplayURLProviderGlobalConfiguration.xml
+org.jenkinsci.plugins.docker.commons.tools.DockerTool.xml
+org.jenkinsci.plugins.gitclient.GitHostKeyVerificationConfiguration.xml
+org.jenkinsci.plugins.gitclient.JGitApacheTool.xml
+org.jenkinsci.plugins.gitclient.JGitTool.xml
+org.jenkinsci.plugins.github_branch_source.GitHubConfiguration.xml
+org.jenkinsci.plugins.gitlab.GitlabBuildTrigger.xml
+org.jenkinsci.plugins.prometheus.config.PrometheusConfiguration.xml
+org.jenkinsci.plugins.workflow.flow.FlowExecutionList.xml
+org.jenkinsci.plugins.workflow.flow.GlobalDefaultFlowDurabilityLevel.xml
+org.jenkinsci.plugins.workflow.libs.GlobalLibraries.xml
+proxy.xml
+queue.xml
+scriptApproval.xml
+thinBackup.xml
+userContent
+users
+[8mha:////4DvRAqY9RYuKDyMoD6VAU8+zrB2foWeC9JkRayQkPMpyAAAAox+LCAAAAAAAAP9tjbEOgjAURS8YB1dHP6KEzcQ4uTYsfkGFWgvNe9g+hMkv8tf8B4kkTt7pnrOc1xvrFHHk6FRrqfOUaq/6MLj5qZFjdw08qpYvqmZKHKyq7FhxY08LViwWy7IcK42NpTpw8uQEW92ahymCIVecJc7uoJH75o4nMj2XxUT5whSxuw1NYvp1/gYw9YJsL8jLsv8AYAPmjb0AAAA=[0m[Pipeline] sh
++ git init
+Reinitialized existing Git repository in /var/lib/jenkins/workspace/Recursos/DevOps Banpará/Jenkins/Backup/.git/
+[8mha:////4BJNW54XxoNf+/192ZKifHgLusqwJZGLUJKV6fzyB2NhAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRVEiIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2AmyvSDf7roPo1DLpr0AAAA=[0m[Pipeline] sh
++ git config --list
+http.sslverify=false
+http.sslcapath=/etc/java/java-11-openjdk/java-11-openjdk-11.0.19.0.7-4.el8.x86_64/lib/security/cacerts
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+http.sslverify=false
+remote.origin.url=https://gen_jenkins:%23RmN3V%23D@gitlab.banpara.com/recursos/devops-banpara/jenkins.git
+user.email=gen_jenkins@banparanet.com
+user.name=gen_jenkins
+[8mha:////4F0BYhMdpmiiYGEfo7Znmsm8z9oGGuLYE/SotkLfwNEOAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRokFCVLRWGl5gEmOcWHfBvpBUvIiv8QciIlGx1c4083pjmSKOHJ1qLLWeUuVVF3o3PTVwbK+BB9XwRVVMiYNVpR1Kru1pxpLFYl6WY6GxslQFTp6cYK0b8zBFMOSKs8TJHTRyX9/xRKanspgoXxgjNre+Tky/zt8Axk6Q7QX5dtd9AOJh0L+9AAAA[0m[Pipeline] sh
++ git config http.sslVerify false
+[8mha:////4AKUgiIJAatDU4QGIwYneB3dnFzVzOGa4BT3yjLAXQ9KAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIREgUSoqK10vACkxjjxLoL9oWk4kV8jT8QEYmKrXammdcbyxRx5OhUY6n1lCqvutC76amBY3sNPKiGL6piShysKu1Qcm1PM5YsFvOyHAuNlaUqcPLkBGvdmIcpgiFXnCVO7qCR+/qOJzI9lcVE+cIYsbn1dWL6df4GMHaCbC/It7vuAyX3kfC9AAAA[0m[Pipeline] sh
++ git config remote.origin.url https://gen_jenkins:%23RmN3V%23D@gitlab.banpara.com/recursos/devops-banpara/jenkins.git
+[8mha:////4LkDITqd1WlDaGTIrcDtLudj3DliYr7Sm/mh5X4FetlbAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRBRISoqK10vACkxjjxLoL9oWk4kV8jT8QEYmKrXammdcbyxRx5OhUY6n1lCqvutC76amBY3sNPKiGL6piShysKu1Qcm1PM5YsFvOyHAuNlaUqcPLkBGvdmIcpgiFXnCVO7qCR+/qOJzI9lcVE+cIYsbn1dWL6df4GMHaCbC/It7vuA2TGium9AAAA[0m[Pipeline] sh
++ git config user.email gen_jenkins@banparanet.com
+[8mha:////4DDKFA7fdWDGP17u8UAISQe+hRzRqQAptmLQkra+46SaAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRDUJCVLRWGl5gEmOcWHfBvpBUvIiv8QciIlGx1c4083pjmSKOHJ1qLLWeUuVVF3o3PTVwbK+BB9XwRVVMiYNVpR1Kru1pxpLFYl6WY6GxslQFTp6cYK0b8zBFMOSKs8TJHTRyX9/xRKanspgoXxgjNre+Tky/zt8Axk6Q7QX5dtd9AKeVp8K9AAAA[0m[Pipeline] sh
++ git config user.name gen_jenkins
+[8mha:////4NoZj/xCJ4Q97/5CGUS3AU8J70Xhfs3MX/v9KRuhfHY0AAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRFUiIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2AmyvSDf7roP5qS8270AAAA=[0m[Pipeline] sh
++ git checkout -b backup
+fatal: a branch named 'backup' already exists
+[8mha:////4L+taVSxMKrXb93NzXPHLT2E/15NCBw3qpqXj6m6PjCiAAAAox+LCAAAAAAAAP9tjbEOgjAURS8YB1dHP6LEjcQ4uTYsfkGFWgvNe9g+hMkv8tf8B4kkTt7pnrOc1xvrFHHk6FRrqfOUaq/6MLj5qZFjdw08qpYvqmZKHKyq7FhxY08LViwWy7IcK42NpTpw8uQEW92ahymCIVecJc7uoJH75o4nMj2XxUT5whSxuw1NYvp1/gYw9b0g35eCrPwAbyyD670AAAA=[0m[Pipeline] }
+[8mha:////4J7XH4R/jAFEXNawwCI1udi4ipuygEig3iXf1o/reAWNAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRFUKIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2HWCfLsXZLsPThhcRr0AAAA=[0m[Pipeline] // script
+Post stage
+[8mha:////4MTqNrZqSBTHuCrOr+RpeCecuK7/vEbUmNcuen+R+DYgAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMJBFDSIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2AmyvSDfbbsPJfeExr0AAAA=[0m[Pipeline] echo
+ERRO
+[8mha:////4M1TfZtHJNPk0eNClsPsYQLSPRRBWBbwyxlC1LJ28eaLAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRFDSIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2HWCfLcVZPsPtxG/h70AAAA=[0m[Pipeline] }
+[8mha:////4Gf7eN1NTlLMmy1X9v5uVO6KUNdZ8V5TkUnZEnt+v5slAAAAox+LCAAAAAAAAP9tjbEOgjAURS8YB1dHP6IkJE7GybVh8Qsq1Fpo3sP2IUx+kb/mP0gkcfJO95zlvN5Yp4gjR6daS52nVHvVh8HNT40cu2vgUbV8UTVT4mBVZceKG3tasGKxWJblWGlsLNWBkycn2OrWPEwRDLniLHF2B43cN3c8kem5LCbKF6aI3W1oEtOv8zeAqe8FeVkKsv0H3ToWWb0AAAA=[0m[Pipeline] // stage
+[8mha:////4J772/98IEu75NKY1X7a76t0uZ2cGu82TKK0OUTzkGi6AAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMKRgA5R0VppeIFJjHFi3QX7QlLxIr7GH4iIRMVWO9PM641lijhydKqx1HpKlVdd6N301MCxvQYeVMMXVTElDlaVdii5tqcZSxaLeVmOhcbKUhU4eXKCtW7MwxTBkCvOEid30Mh9fccTmZ7KYqJ8YYzY3Po6Mf06fwMYu06Qb3eCbP8B+yNxE70AAAA=[0m[Pipeline] }
+[8mha:////4NCktB1E+XwxByF6iA+y2ddcUewNC+sCbPWa8Ar98IlIAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMKRgA5R0VppeIFJjHFi3QX7QlLxIr7GH4iIRMVWO9PM641lijhydKqx1HpKlVdd6N301MCxvQYeVMMXVTElDlaVdii5tqcZSxaLeVmOhcbKUhU4eXKCtW7MwxTBkCvOEid30Mh9fccTmZ7KYqJ8YYzY3Po6Mf06fwMYu06Qb/eCbPcBSGo1P70AAAA=[0m[Pipeline] // node
+[8mha:////4PKgOhVMTY/mQTxKilAtuEMSKZZ+bFjp+NDM0RBEl4I4AAAAox+LCAAAAAAAAP9tjbEOgjAURS8YB1dHP6IkJE7GybVh8Qsq1Fpo3sP2IUx+kb/mP0gkcfJO95zlvN5Yp4gjR6daS52nVHvVh8HNT40cu2vgUbV8UTVT4mBVZceKG3tasGKxWJblWGlsLNWBkycn2OrWPEwRDLniLHF2B43cN3c8kem5LCbKF6aI3W1oEtOv8zeAqe8FebkXZOUHbnNSdb0AAAA=[0m[Pipeline] End of Pipeline
+ERROR: script returned exit code 128
+Finished: FAILURE

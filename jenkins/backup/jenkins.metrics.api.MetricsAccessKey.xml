@@ -1,0 +1,13 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<jenkins.metrics.api.MetricsAccessKey_-DescriptorImpl plugin="metrics@4.2.18-442.v02e107157925">
+  <accessKeys>
+    <jenkins.metrics.api.MetricsAccessKey>
+      <secretKey>{AQAAABAAAABQsk/u9Qrkx0jRd4bVAU8sq55Ca55YvXJUH9l6089RrmT8+DBLjfxxXCEdyEnsoMs/BymDRP8Ds4lGScQYCosg749Aj9iwnXphaoXjjVvtgptkKrQZS1P0gHXHVTbsS//M}</secretKey>
+      <canPing>true</canPing>
+      <canThreadDump>false</canThreadDump>
+      <canHealthCheck>true</canHealthCheck>
+      <canMetrics>true</canMetrics>
+      <origins>*</origins>
+    </jenkins.metrics.api.MetricsAccessKey>
+  </accessKeys>
+</jenkins.metrics.api.MetricsAccessKey_-DescriptorImpl>

@@ -1,0 +1,75 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<user>
+  <version>10</version>
+  <id>tfoliveira</id>
+  <fullName>Thiago Fernandes da Silva Oliveira</fullName>
+  <properties>
+    <jenkins.security.ApiTokenProperty>
+      <tokenStore>
+        <tokenList/>
+      </tokenStore>
+    </jenkins.security.ApiTokenProperty>
+    <com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty plugin="credentials@1254.vb_96f366e7b_a_d">
+      <domainCredentialsMap class="hudson.util.CopyOnWriteMap$Hash"/>
+    </com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty>
+    <hudson.plugins.emailext.watching.EmailExtWatchAction_-UserProperty plugin="email-ext@2.99">
+      <triggers/>
+    </hudson.plugins.emailext.watching.EmailExtWatchAction_-UserProperty>
+    <hudson.model.MyViewsProperty>
+      <views>
+        <hudson.model.AllView>
+          <owner class="hudson.model.MyViewsProperty" reference="../../.."/>
+          <name>all</name>
+          <filterExecutors>false</filterExecutors>
+          <filterQueue>false</filterQueue>
+          <properties class="hudson.model.View$PropertyList"/>
+        </hudson.model.AllView>
+      </views>
+    </hudson.model.MyViewsProperty>
+    <org.jenkinsci.plugins.displayurlapi.user.PreferredProviderUserProperty plugin="display-url-api@2.3.9">
+      <providerId>default</providerId>
+    </org.jenkinsci.plugins.displayurlapi.user.PreferredProviderUserProperty>
+    <hudson.model.PaneStatusProperties>
+      <collapsed>
+        <string>buildQueue</string>
+      </collapsed>
+    </hudson.model.PaneStatusProperties>
+    <jenkins.security.seed.UserSeedProperty>
+      <seed>dacefab204b12cdf</seed>
+    </jenkins.security.seed.UserSeedProperty>
+    <hudson.search.UserSearchProperty>
+      <insensitiveSearch>true</insensitiveSearch>
+    </hudson.search.UserSearchProperty>
+    <hudson.model.TimeZoneProperty/>
+    <jenkins.model.experimentalflags.UserExperimentalFlagsProperty>
+      <flags/>
+    </jenkins.model.experimentalflags.UserExperimentalFlagsProperty>
+    <hudson.tasks.Mailer_-UserProperty plugin="mailer@457.v3f72cb_e015e5">
+      <emailAddress>tfoliveira@banparanet.com.br</emailAddress>
+    </hudson.tasks.Mailer_-UserProperty>
+    <jenkins.security.LastGrantedAuthoritiesProperty>
+      <roles>
+        <string>SUGOT</string>
+        <string>OCP-NPROD-ADMIN-SUGOT</string>
+        <string>OCP-NPROD-VIEW</string>
+        <string>OCP-NPROD-ADMIN-SUSIS</string>
+        <string>OCP-Cluster-View</string>
+        <string>VPN_REDHAT</string>
+        <string>VPN_SUGOT</string>
+        <string>VPN_SUPRO</string>
+        <string>Office365UPN</string>
+        <string>Office365-1</string>
+        <string>Pagamentos-instantaneos</string>
+        <string>Office365-Migration</string>
+        <string>SUGOT-1</string>
+        <string>GrafanaView</string>
+        <string>GEARQ</string>
+        <string>GEARQ-1</string>
+        <string>INTERNET_SUSIS</string>
+        <string>Acesso-OWA</string>
+        <string>authenticated</string>
+      </roles>
+      <timestamp>1688740788137</timestamp>
+    </jenkins.security.LastGrantedAuthoritiesProperty>
+  </properties>
+</user>

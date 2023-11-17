@@ -1,0 +1,73 @@
+- name: Instalação do Jenkins
+  hosts: jenkins
+  remote_user: root
+  environment:
+    http_proxy: http://servicelinux:Ab123456@10.0.1.186:8080/
+    https_proxy: http://servicelinux:Ab123456@10.0.1.186:8080/
+  tasks:
+  - name: Instalação do Java
+    ansible.builtin.yum:
+      name: java-11-openjdk-devel
+      state: present
+  - name: Adicionar Repositório
+    ansible.builtin.yum_repository:
+      name: jenkins
+      description: Jenkins-stable
+      baseurl: http://pkg.jenkins.io/redhat-stable
+      gpgcheck: no
+  - name: Importar chave GVG do jenkins
+    ansible.builtin.rpm_key:
+      state: present
+      key: https://pkg.jenkins.io/redhat/jenkins.io.key
+  - name: Instalação do Jenkins
+    ansible.builtin.yum:
+      name: jenkins
+      state: present
+  - name: Parar serviço do jenkins
+    systemd:
+      name: jenkins
+      state: stopped
+  - name: Copiar arquivos da pasta backup para /var/lib/jenkins/
+    copy:
+      src: backup/
+      dest: /var/lib/jenkins/
+      owner: jenkins
+      group: jenkins
+      mode: '0644'
+  - name: Configurar o owner e group para /var/lib/jenkins/
+    file:
+      path: /var/lib/jenkins/
+      owner: jenkins
+      group: jenkins
+      recurse: yes
+  - name: Criar diretório /etc/jenkins
+    file:
+      path: /etc/jenkins
+      state: directory
+      mode: 0700
+      owner: jenkins
+      group: jenkins
+  - name: Copiar arquivo jenkins.jks
+    copy:
+      src: jenkins.jks 
+      dest: /etc/jenkins/jenkins.jks
+      mode: 0600
+      owner: jenkins
+      group: jenkins
+  - name: Habilitar porta 443
+    firewalld:
+      zone: public
+      port: 443/tcp
+      permanent: true
+      state: enabled
+  - name: Copiar o arquivo jenkins.service para /usr/lib/systemd/system/
+    copy:
+      src: jenkins.service
+      dest: /usr/lib/systemd/system/
+      mode: '0644' 
+  - name: Recarregar o daemon do systemd para refletir as alterações
+    systemd:
+      name: jenkins
+      daemon_reload: true
+      enabled: yes
+      state: started

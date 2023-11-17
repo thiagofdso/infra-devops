@@ -1,0 +1,9 @@
+commit 4e107dcf665eb4298ad9f17a56c715445bd8cf09
+tree 782fd32b195df9b2d6a2122b3ef7a7c767360843
+parent b9a51cf3289d026e3c8284da489b903907cb3a70
+author Thiago Fernandes da Silva Oliveira <tfoliveira@banparanet.com.br> 2023-07-18 14:22:59 -0300
+committer Thiago Fernandes da Silva Oliveira <tfoliveira@banparanet.com.br> 2023-07-18 14:22:59 -0300
+
+    Update Jenkinsfile
+
+:100644 100644 1d0313afaf32bfca99f943aac72065358bb89442 9c6d7ec5acf8d13d73eab92f91ca03aaf141ddb1 M	Jenkinsfile

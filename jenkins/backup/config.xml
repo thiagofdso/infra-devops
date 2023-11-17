@@ -1,0 +1,466 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<hudson>
+  <disabledAdministrativeMonitors>
+    <string>hudson.diagnosis.ReverseProxySetupMonitor</string>
+  </disabledAdministrativeMonitors>
+  <version>2.414.3</version>
+  <numExecutors>2</numExecutors>
+  <mode>NORMAL</mode>
+  <useSecurity>true</useSecurity>
+  <authorizationStrategy class="hudson.security.GlobalMatrixAuthorizationStrategy">
+    <permission>GROUP:hudson.model.Hudson.Administer:authenticated</permission>
+  </authorizationStrategy>
+  <securityRealm class="hudson.security.LDAPSecurityRealm" plugin="ldap@682.v7b_544c9d1512">
+    <disableMailAddressResolver>false</disableMailAddressResolver>
+    <configurations>
+      <jenkins.security.plugins.ldap.LDAPConfiguration>
+        <server>ldap://dc-02.banpara.com:389</server>
+        <rootDN>OU=Usuarios,DC=banpara,DC=com</rootDN>
+        <inhibitInferRootDN>true</inhibitInferRootDN>
+        <userSearchBase></userSearchBase>
+        <userSearch>sAMAccountName={0}</userSearch>
+        <groupSearchFilter>(&amp; (cn={0}) (objectclass=group) )</groupSearchFilter>
+        <groupMembershipStrategy class="jenkins.security.plugins.ldap.FromUserRecordLDAPGroupMembershipStrategy">
+          <attributeName>memberOf</attributeName>
+        </groupMembershipStrategy>
+        <managerDN>gen_jenkins</managerDN>
+        <managerPasswordSecret>{AQAAABAAAAAQG8obSpXEmBYiBWZw5VtgxcYNU9q3uBCps1rlkrDBc/U=}</managerPasswordSecret>
+        <displayNameAttributeName>displayname</displayNameAttributeName>
+        <mailAddressAttributeName>mail</mailAddressAttributeName>
+        <ignoreIfUnavailable>true</ignoreIfUnavailable>
+      </jenkins.security.plugins.ldap.LDAPConfiguration>
+    </configurations>
+    <userIdStrategy class="jenkins.model.IdStrategy$CaseInsensitive"/>
+    <groupIdStrategy class="jenkins.model.IdStrategy$CaseInsensitive"/>
+    <disableRolePrefixing>true</disableRolePrefixing>
+  </securityRealm>
+  <disableRememberMe>false</disableRememberMe>
+  <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
+  <workspaceDir>${JENKINS_HOME}/workspace/${ITEM_FULL_NAME}</workspaceDir>
+  <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
+  <markupFormatter class="hudson.markup.EscapedMarkupFormatter"/>
+  <jdks/>
+  <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
+  <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
+  <clouds>
+    <org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud plugin="kubernetes@3966.v10fb_81791896">
+      <name>openshift-dev</name>
+      <defaultsProviderTemplate></defaultsProviderTemplate>
+      <templates>
+        <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+          <id>daee3636-60fe-49ba-a41b-e3748625a962</id>
+          <name>banpara-base</name>
+          <privileged>false</privileged>
+          <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
+          <alwaysPullImage>false</alwaysPullImage>
+          <instanceCap>2147483647</instanceCap>
+          <slaveConnectTimeout>1000</slaveConnectTimeout>
+          <idleMinutes>0</idleMinutes>
+          <activeDeadlineSeconds>0</activeDeadlineSeconds>
+          <label>banpara-base linux-base</label>
+          <hostNetwork>false</hostNetwork>
+          <volumes/>
+          <containers>
+            <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
+              <name>jnlp</name>
+              <image>image-registry.openshift-image-registry.svc:5000/devops-banpara/agente-jenkins-banpara-base@sha256:bd49b8fd8a35d4e6f5c6d87526645a54542f410f6f8326e2f4d95f134f1c86c6</image>
+              <privileged>false</privileged>
+              <alwaysPullImage>false</alwaysPullImage>
+              <workingDir>/home/jenkins/agent</workingDir>
+              <command></command>
+              <args>${computer.jnlpmac} ${computer.name}</args>
+              <ttyEnabled>false</ttyEnabled>
+              <resourceRequestCpu>500m</resourceRequestCpu>
+              <resourceRequestMemory>500Mi</resourceRequestMemory>
+              <resourceRequestEphemeralStorage></resourceRequestEphemeralStorage>
+              <resourceLimitCpu>500m</resourceLimitCpu>
+              <resourceLimitMemory>2000Mi</resourceLimitMemory>
+              <resourceLimitEphemeralStorage></resourceLimitEphemeralStorage>
+              <envVars/>
+              <ports/>
+              <livenessProbe>
+                <execArgs></execArgs>
+                <timeoutSeconds>0</timeoutSeconds>
+                <initialDelaySeconds>0</initialDelaySeconds>
+                <failureThreshold>0</failureThreshold>
+                <periodSeconds>0</periodSeconds>
+                <successThreshold>0</successThreshold>
+              </livenessProbe>
+            </org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
+          </containers>
+          <envVars/>
+          <annotations/>
+          <imagePullSecrets/>
+          <nodeProperties/>
+          <yamlMergeStrategy class="org.csanchez.jenkins.plugins.kubernetes.pod.yaml.Overrides"/>
+          <showRawYaml>true</showRawYaml>
+        </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+        <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+          <id>9ce3ed2b-40dd-4d3c-b3a8-9c8f7f8f96a2</id>
+          <inheritFrom>banpara-base</inheritFrom>
+          <name>banpara-base-jdk8</name>
+          <privileged>false</privileged>
+          <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
+          <alwaysPullImage>false</alwaysPullImage>
+          <instanceCap>2147483647</instanceCap>
+          <slaveConnectTimeout>1000</slaveConnectTimeout>
+          <idleMinutes>0</idleMinutes>
+          <activeDeadlineSeconds>0</activeDeadlineSeconds>
+          <label>banpara-base-jdk8 linux-base-jdk8</label>
+          <hostNetwork>false</hostNetwork>
+          <volumes/>
+          <containers>
+            <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
+              <name>jnlp</name>
+              <image>image-registry.openshift-image-registry.svc:5000/devops-banpara/agente-jenkins-banpara-base-jdk8@sha256:0ca479ea2ac40ba6495fc5447d4098a465582aca14776636c470e2a1b2cfa1ca</image>
+              <privileged>false</privileged>
+              <alwaysPullImage>false</alwaysPullImage>
+              <workingDir>/home/jenkins/agent</workingDir>
+              <command></command>
+              <args></args>
+              <ttyEnabled>false</ttyEnabled>
+              <resourceRequestCpu>500m</resourceRequestCpu>
+              <resourceRequestMemory>500Mi</resourceRequestMemory>
+              <resourceRequestEphemeralStorage></resourceRequestEphemeralStorage>
+              <resourceLimitCpu>500m</resourceLimitCpu>
+              <resourceLimitMemory>2000Mi</resourceLimitMemory>
+              <resourceLimitEphemeralStorage></resourceLimitEphemeralStorage>
+              <envVars/>
+              <ports/>
+              <livenessProbe>
+                <execArgs></execArgs>
+                <timeoutSeconds>0</timeoutSeconds>
+                <initialDelaySeconds>0</initialDelaySeconds>
+                <failureThreshold>0</failureThreshold>
+                <periodSeconds>0</periodSeconds>
+                <successThreshold>0</successThreshold>
+              </livenessProbe>
+            </org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
+          </containers>
+          <envVars/>
+          <annotations/>
+          <imagePullSecrets/>
+          <nodeProperties/>
+          <yamlMergeStrategy class="org.csanchez.jenkins.plugins.kubernetes.pod.yaml.Overrides"/>
+          <showRawYaml>true</showRawYaml>
+        </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+        <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+          <id>5a8fddda-71ae-4bf8-8e01-6c69edb173c3</id>
+          <inheritFrom>banpara-base</inheritFrom>
+          <name>oc-teste</name>
+          <privileged>false</privileged>
+          <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
+          <alwaysPullImage>false</alwaysPullImage>
+          <instanceCap>2147483647</instanceCap>
+          <slaveConnectTimeout>1000</slaveConnectTimeout>
+          <idleMinutes>0</idleMinutes>
+          <activeDeadlineSeconds>0</activeDeadlineSeconds>
+          <label>oc-teste</label>
+          <hostNetwork>false</hostNetwork>
+          <volumes/>
+          <containers>
+            <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
+              <name>jnlp</name>
+              <image>image-registry.openshift-image-registry.svc:5000/devops-banpara/agente-jenkins-openshift-cli@sha256:9ae12623dbdf722481219f85afd081556f26232b21a2f0199f6a14afb5282291</image>
+              <privileged>false</privileged>
+              <alwaysPullImage>false</alwaysPullImage>
+              <workingDir>/home/jenkins/agent</workingDir>
+              <command></command>
+              <args></args>
+              <ttyEnabled>false</ttyEnabled>
+              <resourceRequestCpu>500m</resourceRequestCpu>
+              <resourceRequestMemory>500Mi</resourceRequestMemory>
+              <resourceRequestEphemeralStorage></resourceRequestEphemeralStorage>
+              <resourceLimitCpu>500m</resourceLimitCpu>
+              <resourceLimitMemory>2000Mi</resourceLimitMemory>
+              <resourceLimitEphemeralStorage></resourceLimitEphemeralStorage>
+              <envVars/>
+              <ports/>
+              <livenessProbe>
+                <execArgs></execArgs>
+                <timeoutSeconds>0</timeoutSeconds>
+                <initialDelaySeconds>0</initialDelaySeconds>
+                <failureThreshold>0</failureThreshold>
+                <periodSeconds>0</periodSeconds>
+                <successThreshold>0</successThreshold>
+              </livenessProbe>
+            </org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
+          </containers>
+          <envVars/>
+          <annotations/>
+          <imagePullSecrets/>
+          <nodeProperties/>
+          <yamlMergeStrategy class="org.csanchez.jenkins.plugins.kubernetes.pod.yaml.Overrides"/>
+          <showRawYaml>true</showRawYaml>
+        </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+        <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+          <id>e928d329-b99b-45c5-a421-0009c6ac49fe</id>
+          <name>openshift-cli</name>
+          <privileged>false</privileged>
+          <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
+          <alwaysPullImage>false</alwaysPullImage>
+          <instanceCap>2147483647</instanceCap>
+          <slaveConnectTimeout>1000</slaveConnectTimeout>
+          <idleMinutes>0</idleMinutes>
+          <activeDeadlineSeconds>0</activeDeadlineSeconds>
+          <label>openshift-cli</label>
+          <hostNetwork>false</hostNetwork>
+          <volumes/>
+          <containers>
+            <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
+              <name>jnlp</name>
+              <image>image-registry.openshift-image-registry.svc:5000/devops-banpara/agente-jenkins-openshift-cli@sha256:9d2e82364b4a16c8eb5c4ac3af94811578deb0652b652d46eecc0424f6d8a1b2</image>
+              <privileged>false</privileged>
+              <alwaysPullImage>false</alwaysPullImage>
+              <workingDir>/home/jenkins/agent</workingDir>
+              <command></command>
+              <args></args>
+              <ttyEnabled>false</ttyEnabled>
+              <resourceRequestCpu>500m</resourceRequestCpu>
+              <resourceRequestMemory>500Mi</resourceRequestMemory>
+              <resourceRequestEphemeralStorage></resourceRequestEphemeralStorage>
+              <resourceLimitCpu>500m</resourceLimitCpu>
+              <resourceLimitMemory>2000Mi</resourceLimitMemory>
+              <resourceLimitEphemeralStorage></resourceLimitEphemeralStorage>
+              <envVars/>
+              <ports/>
+              <livenessProbe>
+                <execArgs></execArgs>
+                <timeoutSeconds>0</timeoutSeconds>
+                <initialDelaySeconds>0</initialDelaySeconds>
+                <failureThreshold>0</failureThreshold>
+                <periodSeconds>0</periodSeconds>
+                <successThreshold>0</successThreshold>
+              </livenessProbe>
+            </org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
+          </containers>
+          <envVars/>
+          <annotations/>
+          <imagePullSecrets/>
+          <nodeProperties/>
+          <yamlMergeStrategy class="org.csanchez.jenkins.plugins.kubernetes.pod.yaml.Overrides"/>
+          <showRawYaml>true</showRawYaml>
+        </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+        <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+          <id>dfbc8bc5-481f-4d04-9616-a80757169c84</id>
+          <name>dotnet6</name>
+          <privileged>false</privileged>
+          <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
+          <alwaysPullImage>false</alwaysPullImage>
+          <instanceCap>2147483647</instanceCap>
+          <slaveConnectTimeout>1000</slaveConnectTimeout>
+          <idleMinutes>0</idleMinutes>
+          <activeDeadlineSeconds>0</activeDeadlineSeconds>
+          <label>dotnet6</label>
+          <hostNetwork>false</hostNetwork>
+          <volumes/>
+          <containers>
+            <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
+              <name>jnlp</name>
+              <image>image-registry.openshift-image-registry.svc:5000/devops-banpara/agente-jenkins-dotnet6@sha256:7a137077f6149f19f31e754567b47439281742e9c82073f032fa0bdbb458153d</image>
+              <privileged>false</privileged>
+              <alwaysPullImage>false</alwaysPullImage>
+              <workingDir>/home/jenkins/agent</workingDir>
+              <command></command>
+              <args>${computer.jnlpmac} ${computer.name}</args>
+              <ttyEnabled>false</ttyEnabled>
+              <resourceRequestCpu>500m</resourceRequestCpu>
+              <resourceRequestMemory>500Mi</resourceRequestMemory>
+              <resourceRequestEphemeralStorage></resourceRequestEphemeralStorage>
+              <resourceLimitCpu>500m</resourceLimitCpu>
+              <resourceLimitMemory>2000Mi</resourceLimitMemory>
+              <resourceLimitEphemeralStorage></resourceLimitEphemeralStorage>
+              <envVars/>
+              <ports/>
+              <livenessProbe>
+                <execArgs></execArgs>
+                <timeoutSeconds>0</timeoutSeconds>
+                <initialDelaySeconds>0</initialDelaySeconds>
+                <failureThreshold>0</failureThreshold>
+                <periodSeconds>0</periodSeconds>
+                <successThreshold>0</successThreshold>
+              </livenessProbe>
+            </org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
+          </containers>
+          <envVars/>
+          <annotations/>
+          <imagePullSecrets/>
+          <nodeProperties>
+            <hudson.tools.ToolLocationNodeProperty>
+              <locations>
+                <hudson.tools.ToolLocationNodeProperty_-ToolLocation>
+                  <type>hudson.plugins.git.GitTool$DescriptorImpl</type>
+                  <name>Default</name>
+                  <home>/usr/bin/git</home>
+                </hudson.tools.ToolLocationNodeProperty_-ToolLocation>
+              </locations>
+            </hudson.tools.ToolLocationNodeProperty>
+          </nodeProperties>
+          <yamlMergeStrategy class="org.csanchez.jenkins.plugins.kubernetes.pod.yaml.Overrides"/>
+          <showRawYaml>true</showRawYaml>
+        </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+        <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+          <id>fc4603d8-ea9d-469f-921e-e4bb0dc06b3c</id>
+          <inheritFrom>banpara-base</inheritFrom>
+          <name>helm</name>
+          <privileged>false</privileged>
+          <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
+          <alwaysPullImage>false</alwaysPullImage>
+          <instanceCap>2147483647</instanceCap>
+          <slaveConnectTimeout>1000</slaveConnectTimeout>
+          <idleMinutes>0</idleMinutes>
+          <activeDeadlineSeconds>0</activeDeadlineSeconds>
+          <label>helm</label>
+          <hostNetwork>false</hostNetwork>
+          <volumes/>
+          <containers>
+            <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
+              <name>jnlp</name>
+              <image>image-registry.openshift-image-registry.svc:5000/devops-banpara/agente-jenkins-helm:1.0.1</image>
+              <privileged>false</privileged>
+              <alwaysPullImage>false</alwaysPullImage>
+              <workingDir>/home/jenkins/agent</workingDir>
+              <command></command>
+              <args></args>
+              <ttyEnabled>false</ttyEnabled>
+              <resourceRequestCpu>500m</resourceRequestCpu>
+              <resourceRequestMemory>500Mi</resourceRequestMemory>
+              <resourceRequestEphemeralStorage></resourceRequestEphemeralStorage>
+              <resourceLimitCpu>500m</resourceLimitCpu>
+              <resourceLimitMemory>2000Mi</resourceLimitMemory>
+              <resourceLimitEphemeralStorage></resourceLimitEphemeralStorage>
+              <envVars/>
+              <ports/>
+              <livenessProbe>
+                <execArgs></execArgs>
+                <timeoutSeconds>0</timeoutSeconds>
+                <initialDelaySeconds>0</initialDelaySeconds>
+                <failureThreshold>0</failureThreshold>
+                <periodSeconds>0</periodSeconds>
+                <successThreshold>0</successThreshold>
+              </livenessProbe>
+            </org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
+          </containers>
+          <envVars/>
+          <annotations/>
+          <imagePullSecrets/>
+          <nodeProperties>
+            <hudson.tools.ToolLocationNodeProperty>
+              <locations>
+                <hudson.tools.ToolLocationNodeProperty_-ToolLocation>
+                  <type>hudson.plugins.git.GitTool$DescriptorImpl</type>
+                  <name>Default</name>
+                  <home>/usr/bin/git</home>
+                </hudson.tools.ToolLocationNodeProperty_-ToolLocation>
+              </locations>
+            </hudson.tools.ToolLocationNodeProperty>
+          </nodeProperties>
+          <yamlMergeStrategy class="org.csanchez.jenkins.plugins.kubernetes.pod.yaml.Overrides"/>
+          <showRawYaml>true</showRawYaml>
+          <podRetention class="org.csanchez.jenkins.plugins.kubernetes.pod.retention.Always"/>
+        </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+      </templates>
+      <serverUrl>https://api.ocp.desenv.com:6443</serverUrl>
+      <useJenkinsProxy>false</useJenkinsProxy>
+      <serverCertificate>-----BEGIN CERTIFICATE-----
+MIIDMjCCAhqgAwIBAgIIIK0IRaSPL5IwDQYJKoZIhvcNAQELBQAwNzESMBAGA1UE
+CxMJb3BlbnNoaWZ0MSEwHwYDVQQDExhrdWJlLWFwaXNlcnZlci1sYi1zaWduZXIw
+HhcNMjEwMzI0MDMxMjMxWhcNMzEwMzIyMDMxMjMxWjA3MRIwEAYDVQQLEwlvcGVu
+c2hpZnQxITAfBgNVBAMTGGt1YmUtYXBpc2VydmVyLWxiLXNpZ25lcjCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBALLeqB4yunnWGYZqqwfEyK3RcyJI6bcJ
+Oul75IrsKAiWVRDErL20pyWFfPhDr+pzLDEyDSNjwiHDCzkHWHRezh6+mScCP450
+fjmnfDHgL62gXGz7sh3qjM1U1mBkouTI/vHrjb3+YygrJswCm+zborFUzlHDuiq2
+wjb0j185yuzOVmGMEttFzn4L6mef4RTdwT9OB4fPGrvuufoLtTE/4II7ichNuM5O
+sKe62yhAjc4gbUAsec/FkJXs89qc4bcXEEuSb+SB8wi8uQ89Sdriy1rru0huyi/X
+0McTs/6mib0fKVRBneQTqikt3rl2JRzwfdY5ZVLmXB/PCZR6wKzu0IsCAwEAAaNC
+MEAwDgYDVR0PAQH/BAQDAgKkMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFJa6
+6rsnPhIZ3dcytztbBX5o70R8MA0GCSqGSIb3DQEBCwUAA4IBAQCbisIOiJBc4mt9
+Q21ZX75F99OSO7UGjFG91SiCFADMdUrydCvR6qQz0N06lKECE8YxYE4cGGgFykdD
+7/xHAxo/5JZt+z8xBiTDoRC2wd7jnR67lJsCywprUdUTuKByoFLSGR6rZNEQ7Pku
+o1sVHC+QaHcn5rw3TXaF0OrBIKnZOzMHzCor5W+zSRUY1Slo42dTdHb+yCQYWnxa
+lPjksCtjVkvSDNTqkaFog5hYly5t8CGGmFDdqU3y4RwfXNxi556kllaavW3hytP0
+zdQUd4w5+qcM6c41+F4wx4IzZwgiP36aDfIsrFbUdv+62Z4MEyq1m9iT87/Iwsfr
+UykipFDz
+-----END CERTIFICATE-----</serverCertificate>
+      <skipTlsVerify>false</skipTlsVerify>
+      <addMasterProxyEnvVars>false</addMasterProxyEnvVars>
+      <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
+      <namespace>jenkins-operator</namespace>
+      <webSocket>false</webSocket>
+      <directConnection>true</directConnection>
+      <credentialsId>token-jenkins-ocp-desenv</credentialsId>
+      <containerCap>100</containerCap>
+      <retentionTimeout>5</retentionTimeout>
+      <connectTimeout>5</connectTimeout>
+      <readTimeout>15</readTimeout>
+      <podLabels>
+        <org.csanchez.jenkins.plugins.kubernetes.PodLabel>
+          <key>jenkins</key>
+          <value>agent</value>
+        </org.csanchez.jenkins.plugins.kubernetes.PodLabel>
+      </podLabels>
+      <usageRestricted>false</usageRestricted>
+      <maxRequestsPerHost>32</maxRequestsPerHost>
+      <waitForPodSec>600</waitForPodSec>
+      <podRetention class="org.csanchez.jenkins.plugins.kubernetes.pod.retention.Never"/>
+    </org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud>
+  </clouds>
+  <quietPeriod>5</quietPeriod>
+  <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
+  <views>
+    <hudson.model.AllView>
+      <owner class="hudson" reference="../../.."/>
+      <name>all</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+    </hudson.model.AllView>
+  </views>
+  <primaryView>all</primaryView>
+  <slaveAgentPort>40201</slaveAgentPort>
+  <label>controlador</label>
+  <crumbIssuer class="hudson.security.csrf.DefaultCrumbIssuer">
+    <excludeClientIPFromCrumb>false</excludeClientIPFromCrumb>
+  </crumbIssuer>
+  <nodeProperties/>
+  <globalNodeProperties>
+    <hudson.slaves.EnvironmentVariablesNodeProperty>
+      <envVars serialization="custom">
+        <unserializable-parents/>
+        <tree-map>
+          <default>
+            <comparator class="java.lang.String$CaseInsensitiveComparator"/>
+          </default>
+          <int>13</int>
+          <string>DOCKER_REGISTRY</string>
+          <string>nexus.banpara.com:9001</string>
+          <string>DOCKER_REGISTRY_URL</string>
+          <string>https://nexus.banpara.com:9001</string>
+          <string>EMAILS_ADMIN</string>
+          <string>cc:GEFAB@banparanet.com.br</string>
+          <string>GITLAB_URL</string>
+          <string>https://gitlab.banpara.com</string>
+          <string>LANG</string>
+          <string>pt_BR.UTF-8</string>
+          <string>NEXUS_HOST</string>
+          <string>nexus.banpara.com</string>
+          <string>NEXUS_PORT</string>
+          <string>8081</string>
+          <string>NEXUS_PROTOCOL</string>
+          <string>http</string>
+          <string>NEXUS_URL</string>
+          <string>http://nexus.banpara.com:8081</string>
+          <string>OPENSHIFT_URL_DESENV</string>
+          <string>https://api.ocp.desenv.com:6443</string>
+          <string>SHA256_EXE</string>
+          <string>/usr/local/bin/sha256sum</string>
+          <string>SONAR_URL</string>
+          <string>http://sonar.banpara.com:9000</string>
+          <string>SVN_URL</string>
+          <string>https://dev-srvsvn.desenv.com/svn</string>
+        </tree-map>
+      </envVars>
+    </hudson.slaves.EnvironmentVariablesNodeProperty>
+  </globalNodeProperties>
+  <nodeRenameMigrationNeeded>false</nodeRenameMigrationNeeded>
+</hudson>

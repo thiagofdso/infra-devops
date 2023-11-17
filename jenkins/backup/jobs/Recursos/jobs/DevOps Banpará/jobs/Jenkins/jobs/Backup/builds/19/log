@@ -1,0 +1,294 @@
+Started by user [8mha:////4LGto8B2eip1MSkvMa4E0mMHCrafHvCgDPwHGORpiju/AAAAnB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAylEgYB/dLi1CL9krT8nMyy1MyiRAC5HLp1xQAAAA==[0mThiago Fernandes da Silva Oliveira
+[8mha:////4AI5p15/B46iyeAgM6C7ZN9cOIwjm16Ei/9ozSsL8gpTAAAAoh+LCAAAAAAAAP9tjTEOwjAQBM8BClpKHuFItIiK1krDC0x8GCfWnbEdkooX8TX+gCESFVvtrLSa5wtWKcKBo5UdUu8otU4GP9jS5Mixv3geZcdn2TIl9igbHBs2eJyx4YwwR1SwULBGaj0nRzbDRnX6rmuvydanHMu2V1A5c4MHCFXMWcf8hSnC9jqYxPTz/BXAFEIGsfuclm8zQVqFvQAAAA==[0m[Pipeline] Start of Pipeline
+[8mha:////4F9+h+uHqYsTCiRhILoNaxE7sRTLaZm5WKPnZ86sz/Z0AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycohUghExsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jduZBmjwAAAAA==[0m[Pipeline] node
+Running on [8mha:////4Jecca/0t8uO8G/QdzNMwO1KULl3qhkAjqlIGh0aPUgDAAAAoR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZR/eT83ILSktQifY2k0sycEt3MPE19AHHxbH3KAAAA[0mJenkins in /var/lib/jenkins/workspace/Recursos/DevOps Banpará/Jenkins/Backup
+[8mha:////4E5SG009XtlxUGWTkizGWMsSDppHnvesMcvv28doDz5vAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gA0xsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jfoP95RwAAAAA==[0m[Pipeline] {
+[8mha:////4IE2W4q5b2VcS8vRmJKLoFMFdE3R9tZi/tI8G/QxPBwqAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gQkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jc09154wAAAAA==[0m[Pipeline] stage
+[8mha:////4B40w2x3VoQurmNpypPktkunePAA5hVtdP4og8OiIjCjAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0ggUxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jek7ggRwAAAAA==[0m[Pipeline] { (Obter jenkins.xml)
+[8mha:////4OmbsJQbWGLyCRxb5lmzJtSfL6b1BZT7vM+PoO3vrKs9AAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0gwExsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jcChmMxwAAAAA==[0m[Pipeline] script
+[8mha:////4LZlac/44FIeNIhezDJFwMb/jNy/fvALa0d3LuTE7JtTAAAApR+LCAAAAAAAAP9tjTEOwjAUQ3+KOrAycoh0BAkxsUZZOEFIQkgb/d8mKe3EibgadyBQiQlLlmxL1nu+oE4RjhQdby12HpP2vA+jK4lPFLtroIm3dOGaMFGwXNpJkrGnpUrKFhaxClYC1hZ1oOTRZdiIVt1VExS65pxj2Q4CKm8GeAAThZxVzN8yR9jeRpMIf5y/AJj7DGxXvP/86jfpX/cvwAAAAA==[0m[Pipeline] {
+[8mha:////4Hasa09AHnj75WZwfcJ4um1SjDCFH4ugQb0EiYSfuQLmAAAAoh+LCAAAAAAAAP9tjTEOAiEURD9rLGwtPQTbaoyVLaHxBMgiwpL/WWDdrTyRV/MOEjexcpJJ5k3zXm9Y5wQnSpZ7g73DrB2PYbR18YlSfws0cU9XrgkzBcOlmSR15rygpGJgCWtgJWBjUAfKDm2BrfDqodqg0LaXkup3FNC4boAnMFHNRaXyhTnB7j52mfDn+SuAORZg+9pD/AAeoCAqvAAAAA==[0m[Pipeline] sh
++ pwd
+/var/lib/jenkins/workspace/Recursos/DevOps Banpará/Jenkins/Backup
+[8mha:////4AV5YrpTAdGVi+4W4t3GNF8AFAFYelaF1Dy9+PWf7jZZAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMKBDglR0VppeIFJjHFi3QX7QlLxIr7GH4iIRMVWO9PM641lijhydKqx1HpKlVdd6N301MCxvQYeVMMXVTElDlaVdii5tqcZSxaLeVmOhcbKUhU4eXKCtW7MwxTBkCvOEid30Mh9fccTmZ7KYqJ8YYzY3Po6Mf06fwMYO0G2F+S7bfcBITL9lL0AAAA=[0m[Pipeline] sh
++ ls backup
+FULL-2023-10-11_15-40
+backup.xml
+com.cloudbees.hudson.plugins.folder.config.AbstractFolderConfiguration.xml
+com.dabsquared.gitlabjenkins.GitLabPushTrigger.xml
+com.dabsquared.gitlabjenkins.connection.GitLabConnectionConfig.xml
+config.xml
+credentials-configuration.xml
+credentials.xml
+github-plugin-configuration.xml
+hudson.model.UpdateCenter.xml
+hudson.plugins.build_timeout.global.GlobalTimeOutConfiguration.xml
+hudson.plugins.build_timeout.operations.BuildStepOperation.xml
+hudson.plugins.emailext.ExtendedEmailPublisher.xml
+hudson.plugins.git.GitSCM.xml
+hudson.plugins.git.GitTool.xml
+hudson.plugins.gradle.Gradle.xml
+hudson.plugins.gradle.enriched.EnrichedSummaryConfig.xml
+hudson.plugins.gradle.injection.InjectionConfig.xml
+hudson.plugins.timestamper.TimestamperConfig.xml
+hudson.tasks.Ant.xml
+hudson.tasks.Mailer.xml
+hudson.tasks.Maven.xml
+hudson.tasks.Shell.xml
+hudson.triggers.SCMTrigger.xml
+installedPlugins.xml
+io.jenkins.plugins.gitlabserverconfig.servers.GitLabServers.xml
+io.jenkins.plugins.junit.storage.JunitTestResultStorageConfiguration.xml
+jenkins.fingerprints.GlobalFingerprintConfiguration.xml
+jenkins.metrics.api.MetricsAccessKey.xml
+jenkins.model.ArtifactManagerConfiguration.xml
+jenkins.model.GlobalBuildDiscarderConfiguration.xml
+jenkins.model.JenkinsLocationConfiguration.xml
+jenkins.mvn.GlobalMavenConfig.xml
+jenkins.plugins.git.GitHooksConfiguration.xml
+jenkins.security.QueueItemAuthenticatorConfiguration.xml
+jenkins.security.ResourceDomainConfiguration.xml
+jenkins.security.UpdateSiteWarningsConfiguration.xml
+jenkins.security.apitoken.ApiTokenPropertyConfiguration.xml
+jenkins.tasks.filters.EnvVarsFilterGlobalConfiguration.xml
+jenkins.telemetry.Correlator.xml
+jobs
+nodeMonitors.xml
+org.jenkinsci.plugins.displayurlapi.DefaultDisplayURLProviderGlobalConfiguration.xml
+org.jenkinsci.plugins.docker.commons.tools.DockerTool.xml
+org.jenkinsci.plugins.gitclient.GitHostKeyVerificationConfiguration.xml
+org.jenkinsci.plugins.gitclient.JGitApacheTool.xml
+org.jenkinsci.plugins.gitclient.JGitTool.xml
+org.jenkinsci.plugins.github_branch_source.GitHubConfiguration.xml
+org.jenkinsci.plugins.gitlab.GitlabBuildTrigger.xml
+org.jenkinsci.plugins.prometheus.config.PrometheusConfiguration.xml
+org.jenkinsci.plugins.workflow.flow.FlowExecutionList.xml
+org.jenkinsci.plugins.workflow.flow.GlobalDefaultFlowDurabilityLevel.xml
+org.jenkinsci.plugins.workflow.libs.GlobalLibraries.xml
+proxy.xml
+queue.xml
+scriptApproval.xml
+thinBackup.xml
+userContent
+users
+[8mha:////4DvRAqY9RYuKDyMoD6VAU8+zrB2foWeC9JkRayQkPMpyAAAAox+LCAAAAAAAAP9tjbEOgjAURS8YB1dHP6KEzcQ4uTYsfkGFWgvNe9g+hMkv8tf8B4kkTt7pnrOc1xvrFHHk6FRrqfOUaq/6MLj5qZFjdw08qpYvqmZKHKyq7FhxY08LViwWy7IcK42NpTpw8uQEW92ahymCIVecJc7uoJH75o4nMj2XxUT5whSxuw1NYvp1/gYw9YJsL8jLsv8AYAPmjb0AAAA=[0m[Pipeline] sh
++ git init
+Reinitialized existing Git repository in /var/lib/jenkins/workspace/Recursos/DevOps Banpará/Jenkins/Backup/.git/
+[8mha:////4BJNW54XxoNf+/192ZKifHgLusqwJZGLUJKV6fzyB2NhAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRVEiIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2AmyvSDf7roPo1DLpr0AAAA=[0m[Pipeline] sh
++ git config --list
+http.sslverify=false
+http.sslcapath=/etc/java/java-11-openjdk/java-11-openjdk-11.0.19.0.7-4.el8.x86_64/lib/security/cacerts
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+http.sslverify=false
+remote.origin.url=https://gen_jenkins:%23RmN3V%23D@gitlab.banpara.com/recursos/devops-banpara/jenkins.git
+user.email=gen_jenkins@banparanet.com
+user.name=gen_jenkins
+[8mha:////4F0BYhMdpmiiYGEfo7Znmsm8z9oGGuLYE/SotkLfwNEOAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRokFCVLRWGl5gEmOcWHfBvpBUvIiv8QciIlGx1c4083pjmSKOHJ1qLLWeUuVVF3o3PTVwbK+BB9XwRVVMiYNVpR1Kru1pxpLFYl6WY6GxslQFTp6cYK0b8zBFMOSKs8TJHTRyX9/xRKanspgoXxgjNre+Tky/zt8Axk6Q7QX5dtd9AOJh0L+9AAAA[0m[Pipeline] sh
++ git config http.sslVerify false
+[8mha:////4AKUgiIJAatDU4QGIwYneB3dnFzVzOGa4BT3yjLAXQ9KAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIREgUSoqK10vACkxjjxLoL9oWk4kV8jT8QEYmKrXammdcbyxRx5OhUY6n1lCqvutC76amBY3sNPKiGL6piShysKu1Qcm1PM5YsFvOyHAuNlaUqcPLkBGvdmIcpgiFXnCVO7qCR+/qOJzI9lcVE+cIYsbn1dWL6df4GMHaCbC/It7vuAyX3kfC9AAAA[0m[Pipeline] sh
++ git config remote.origin.url https://gen_jenkins:%23RmN3V%23D@gitlab.banpara.com/recursos/devops-banpara/jenkins.git
+[8mha:////4LkDITqd1WlDaGTIrcDtLudj3DliYr7Sm/mh5X4FetlbAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRBRISoqK10vACkxjjxLoL9oWk4kV8jT8QEYmKrXammdcbyxRx5OhUY6n1lCqvutC76amBY3sNPKiGL6piShysKu1Qcm1PM5YsFvOyHAuNlaUqcPLkBGvdmIcpgiFXnCVO7qCR+/qOJzI9lcVE+cIYsbn1dWL6df4GMHaCbC/It7vuA2TGium9AAAA[0m[Pipeline] sh
++ git config user.email gen_jenkins@banparanet.com
+[8mha:////4DDKFA7fdWDGP17u8UAISQe+hRzRqQAptmLQkra+46SaAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRDUJCVLRWGl5gEmOcWHfBvpBUvIiv8QciIlGx1c4083pjmSKOHJ1qLLWeUuVVF3o3PTVwbK+BB9XwRVVMiYNVpR1Kru1pxpLFYl6WY6GxslQFTp6cYK0b8zBFMOSKs8TJHTRyX9/xRKanspgoXxgjNre+Tky/zt8Axk6Q7QX5dtd9AKeVp8K9AAAA[0m[Pipeline] sh
++ git config user.name gen_jenkins
+[8mha:////4NoZj/xCJ4Q97/5CGUS3AU8J70Xhfs3MX/v9KRuhfHY0AAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRFUiIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2AmyvSDf7roP5qS8270AAAA=[0m[Pipeline] sh
++ git checkout backup
+Already on 'backup'
+[8mha:////4Plv2dacFRDG0wnqVMFYo/VZKDzdBjtpV5t5YRTYBiZ4AAAAox+LCAAAAAAAAP9tjbEOgjAURS8YB1dHP6LEjcQ4uTYsfkGFWgvNe9g+hMkv8tf8B4kkTt7pnrOc1xvrFHHk6FRrqfOUaq/6MLj5qZFjdw08qpYvqmZKHKyq7FhxY08LViwWy7IcK42NpTpw8uQEW92ahymCIVecJc7uoJH75o4nMj2XxUT5whSxuw1NYvp1/gYw9YKsFOT7sv8AKbgkXL0AAAA=[0m[Pipeline] sh
++ git pull -v
+POST git-upload-pack (69 bytes)
+From https://gitlab.banpara.com/recursos/devops-banpara/jenkins
+ * branch            HEAD       -> FETCH_HEAD
+Already up to date.
+[8mha:////4DBz7DZn3zvdCnt/NqhN2iXPisnoF9k2A6beXtw3hNivAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRHQhR0VppeIFJjHFi3QX7QlLxIr7GH4iIRMVWO9PM641lijhydKqx1HpKlVdd6N301MCxvQYeVMMXVTElDlaVdii5tqcZSxaLeVmOhcbKUhU4eXKCtW7MwxTBkCvOEid30Mh9fccTmZ7KYqJ8YYzY3Po6Mf06fwMYO0G2E+TbffcBaIk/Rb0AAAA=[0m[Pipeline] sh
++ rsync -v -a --remove-source-files backup/FULL-2023-10-11_15-40/ backup/
+sending incremental file list
+
+sent 1,040 bytes  received 56 bytes  2,192.00 bytes/sec
+total size is 0  speedup is 0.00
+[8mha:////4ObFwsrii5Fz4HKfmI9KiKHK5jmpMJHAT7i1i0mU6zd/AAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMJBVEiIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2AmyvSDfbbsPeIy7lr0AAAA=[0m[Pipeline] sh
++ cd backup
+[8mha:////4HuFfXCYeVyYKweJ6G7EemZKfZ53A8wa/wizO/xpnUAWAAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMIRVEiIitZKwwtMYowT6y7YF5KKF/E1/kBEJCq22plmXm8sU8SRo1ONpdZTqrzqQu+mpwaO7TXwoBq+qIopcbCqtEPJtT3NWLJYzMtyLDRWlqrAyZMTrHVjHqYIhlxxlji5g0bu6zueyPRUFhPlC2PE5tbXienX+RvA2AmyvSDfbbsPOb2gj70AAAA=[0m[Pipeline] sh
++ rm -rf 'FULL*'
+[8mha:////4LBJGw2dUCA7gYo/xdXgpIRfFIsIBt5cLuQkBk6y8nLyAAAAox+LCAAAAAAAAP9tjbEOgjAURS8YB1dHP6IkTCbGybVh8Qsq1Fpo3sP2IUx+kb/mP0gkcfJO95zlvN5Yp4gjR6daS52nVHvVh8HNT40cu2vgUbV8UTVT4mBVZceKG3tasGKxWJblWGlsLNWBkycn2OrWPEwRDLniLHF2B43cN3c8kem5LCbKF6aI3W1oEtOv8zeAqRdke0Felv0H+u6NpL0AAAA=[0m[Pipeline] sh
++ cd ..
+[8mha:////4KOLZJn6J95wNKf/xJrf5mxfqonWVx/kE7ednkjahpjsAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMKRoEFCVLRWGl5gEmOcWHfBvpBUvIiv8QciIlGx1c4083pjmSKOHJ1qLLWeUuVVF3o3PTVwbK+BB9XwRVVMiYNVpR1Kru1pxpLFYl6WY6GxslQFTp6cYK0b8zBFMOSKs8TJHTRyX9/xRKanspgoXxgjNre+Tky/zt8Axk6Q7QX5dtd9ALvflr29AAAA[0m[Pipeline] sh
++ git add backup/FULL-2023-10-11_15-40 backup/backup.xml backup/com.cloudbees.hudson.plugins.folder.config.AbstractFolderConfiguration.xml backup/com.dabsquared.gitlabjenkins.GitLabPushTrigger.xml backup/com.dabsquared.gitlabjenkins.connection.GitLabConnectionConfig.xml backup/config.xml backup/credentials-configuration.xml backup/credentials.xml backup/github-plugin-configuration.xml backup/hudson.model.UpdateCenter.xml backup/hudson.plugins.build_timeout.global.GlobalTimeOutConfiguration.xml backup/hudson.plugins.build_timeout.operations.BuildStepOperation.xml backup/hudson.plugins.emailext.ExtendedEmailPublisher.xml backup/hudson.plugins.git.GitSCM.xml backup/hudson.plugins.git.GitTool.xml backup/hudson.plugins.gradle.Gradle.xml backup/hudson.plugins.gradle.enriched.EnrichedSummaryConfig.xml backup/hudson.plugins.gradle.injection.InjectionConfig.xml backup/hudson.plugins.timestamper.TimestamperConfig.xml backup/hudson.tasks.Ant.xml backup/hudson.tasks.Mailer.xml backup/hudson.tasks.Maven.xml backup/hudson.tasks.Shell.xml backup/hudson.triggers.SCMTrigger.xml backup/installedPlugins.xml backup/io.jenkins.plugins.gitlabserverconfig.servers.GitLabServers.xml backup/io.jenkins.plugins.junit.storage.JunitTestResultStorageConfiguration.xml backup/jenkins.fingerprints.GlobalFingerprintConfiguration.xml backup/jenkins.metrics.api.MetricsAccessKey.xml backup/jenkins.model.ArtifactManagerConfiguration.xml backup/jenkins.model.GlobalBuildDiscarderConfiguration.xml backup/jenkins.model.JenkinsLocationConfiguration.xml backup/jenkins.mvn.GlobalMavenConfig.xml backup/jenkins.plugins.git.GitHooksConfiguration.xml backup/jenkins.security.QueueItemAuthenticatorConfiguration.xml backup/jenkins.security.ResourceDomainConfiguration.xml backup/jenkins.security.UpdateSiteWarningsConfiguration.xml backup/jenkins.security.apitoken.ApiTokenPropertyConfiguration.xml backup/jenkins.tasks.filters.EnvVarsFilterGlobalConfiguration.xml backup/jenkins.telemetry.Correlator.xml backup/jobs backup/nodeMonitors.xml backup/org.jenkinsci.plugins.displayurlapi.DefaultDisplayURLProviderGlobalConfiguration.xml backup/org.jenkinsci.plugins.docker.commons.tools.DockerTool.xml backup/org.jenkinsci.plugins.gitclient.GitHostKeyVerificationConfiguration.xml backup/org.jenkinsci.plugins.gitclient.JGitApacheTool.xml backup/org.jenkinsci.plugins.gitclient.JGitTool.xml backup/org.jenkinsci.plugins.github_branch_source.GitHubConfiguration.xml backup/org.jenkinsci.plugins.gitlab.GitlabBuildTrigger.xml backup/org.jenkinsci.plugins.prometheus.config.PrometheusConfiguration.xml backup/org.jenkinsci.plugins.workflow.flow.FlowExecutionList.xml backup/org.jenkinsci.plugins.workflow.flow.GlobalDefaultFlowDurabilityLevel.xml backup/org.jenkinsci.plugins.workflow.libs.GlobalLibraries.xml backup/proxy.xml backup/queue.xml backup/scriptApproval.xml backup/thinBackup.xml backup/userContent backup/users
+[8mha:////4J5XEb/9VQPETDnT07nEjSubrryXObH9uCRPFnjTHZqpAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMKREAUSoqK10vACkxjjxLoL9oWk4kV8jT8QEYmKrXammdcbyxRx5OhUY6n1lCqvutC76amBY3sNPKiGL6piShysKu1Qcm1PM5YsFvOyHAuNlaUqcPLkBGvdmIcpgiFXnCVO7qCR+/qOJzI9lcVE+cIYsbn1dWL6df4GMHaCbC/It7vuA3xJ1/K9AAAA[0m[Pipeline] sh
++ git commit -m 'Atualizacao backup'
+[backup ff89b98] Atualizacao backup
+ 155 files changed, 19930 insertions(+)
+ create mode 100644 backup/backup.xml
+ create mode 100644 backup/com.cloudbees.hudson.plugins.folder.config.AbstractFolderConfiguration.xml
+ create mode 100644 backup/com.dabsquared.gitlabjenkins.GitLabPushTrigger.xml
+ create mode 100644 backup/com.dabsquared.gitlabjenkins.connection.GitLabConnectionConfig.xml
+ create mode 100644 backup/config.xml
+ create mode 100644 backup/credentials-configuration.xml
+ create mode 100644 backup/credentials.xml
+ create mode 100644 backup/github-plugin-configuration.xml
+ create mode 100644 backup/hudson.model.UpdateCenter.xml
+ create mode 100644 backup/hudson.plugins.build_timeout.global.GlobalTimeOutConfiguration.xml
+ create mode 100644 backup/hudson.plugins.build_timeout.operations.BuildStepOperation.xml
+ create mode 100644 backup/hudson.plugins.emailext.ExtendedEmailPublisher.xml
+ create mode 100644 backup/hudson.plugins.git.GitSCM.xml
+ create mode 100644 backup/hudson.plugins.git.GitTool.xml
+ create mode 100644 backup/hudson.plugins.gradle.Gradle.xml
+ create mode 100644 backup/hudson.plugins.gradle.enriched.EnrichedSummaryConfig.xml
+ create mode 100644 backup/hudson.plugins.gradle.injection.InjectionConfig.xml
+ create mode 100644 backup/hudson.plugins.timestamper.TimestamperConfig.xml
+ create mode 100644 backup/hudson.tasks.Ant.xml
+ create mode 100644 backup/hudson.tasks.Mailer.xml
+ create mode 100644 backup/hudson.tasks.Maven.xml
+ create mode 100644 backup/hudson.tasks.Shell.xml
+ create mode 100644 backup/hudson.triggers.SCMTrigger.xml
+ create mode 100644 backup/installedPlugins.xml
+ create mode 100644 backup/io.jenkins.plugins.gitlabserverconfig.servers.GitLabServers.xml
+ create mode 100644 backup/io.jenkins.plugins.junit.storage.JunitTestResultStorageConfiguration.xml
+ create mode 100644 backup/jenkins.fingerprints.GlobalFingerprintConfiguration.xml
+ create mode 100644 backup/jenkins.metrics.api.MetricsAccessKey.xml
+ create mode 100644 backup/jenkins.model.ArtifactManagerConfiguration.xml
+ create mode 100644 backup/jenkins.model.GlobalBuildDiscarderConfiguration.xml
+ create mode 100644 backup/jenkins.model.JenkinsLocationConfiguration.xml
+ create mode 100644 backup/jenkins.mvn.GlobalMavenConfig.xml
+ create mode 100644 backup/jenkins.plugins.git.GitHooksConfiguration.xml
+ create mode 100644 backup/jenkins.security.QueueItemAuthenticatorConfiguration.xml
+ create mode 100644 backup/jenkins.security.ResourceDomainConfiguration.xml
+ create mode 100644 backup/jenkins.security.UpdateSiteWarningsConfiguration.xml
+ create mode 100644 backup/jenkins.security.apitoken.ApiTokenPropertyConfiguration.xml
+ create mode 100644 backup/jenkins.tasks.filters.EnvVarsFilterGlobalConfiguration.xml
+ create mode 100644 backup/jenkins.telemetry.Correlator.xml
+ create mode 100644 backup/jobs/Recursos/config.xml
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/config.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/config.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/13/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/13/changelog14309061827870989770.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/13/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/13/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/14/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/14/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/14/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/15/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/15/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/15/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/16/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/16/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/16/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/17/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/17/changelog17313283272854261912.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/17/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/17/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/18/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/18/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/18/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/19/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/19/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/19/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/20/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/20/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/20/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/21/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/21/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/21/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/22/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/22/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/22/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/23/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/23/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/23/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/24/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/24/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/24/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/25/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/25/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/25/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/26/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/26/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/26/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/27/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/27/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/27/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/28/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/28/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/28/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/29/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/29/changelog6126252981682875070.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/29/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/29/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/30/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/30/changelog5783752900582448675.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/30/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/30/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/31/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/31/changelog6752250150424455783.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/31/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/31/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/32/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/32/changelog4641722558591053910.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/32/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/32/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/33/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/33/changelog10660717705530982775.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/33/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/33/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/34/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/34/changelog7681037168766666106.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/34/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/34/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/35/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/35/changelog11325387834200892669.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/35/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/35/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/legacyIds"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/builds/permalinks"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Helm/jobs/Helm charts/config.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Jenkins/config.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Jenkins/jobs/Backup/builds/1/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Jenkins/jobs/Backup/builds/1/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Jenkins/jobs/Backup/builds/1/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Jenkins/jobs/Backup/builds/2/build.xml"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Jenkins/jobs/Backup/builds/2/log"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Jenkins/jobs/Backup/builds/2/log-index"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Jenkins/jobs/Backup/builds/legacyIds"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Jenkins/jobs/Backup/builds/permalinks"
+ create mode 100644 "backup/jobs/Recursos/jobs/DevOps Banpar\303\241/jobs/Jenkins/jobs/Backup/config.xml"
+ create mode 100644 backup/nodeMonitors.xml
+ create mode 100644 backup/org.jenkinsci.plugins.displayurlapi.DefaultDisplayURLProviderGlobalConfiguration.xml
+ create mode 100644 backup/org.jenkinsci.plugins.docker.commons.tools.DockerTool.xml
+ create mode 100644 backup/org.jenkinsci.plugins.gitclient.GitHostKeyVerificationConfiguration.xml
+ create mode 100644 backup/org.jenkinsci.plugins.gitclient.JGitApacheTool.xml
+ create mode 100644 backup/org.jenkinsci.plugins.gitclient.JGitTool.xml
+ create mode 100644 backup/org.jenkinsci.plugins.github_branch_source.GitHubConfiguration.xml
+ create mode 100644 backup/org.jenkinsci.plugins.gitlab.GitlabBuildTrigger.xml
+ create mode 100644 backup/org.jenkinsci.plugins.prometheus.config.PrometheusConfiguration.xml
+ create mode 100644 backup/org.jenkinsci.plugins.workflow.flow.FlowExecutionList.xml
+ create mode 100644 backup/org.jenkinsci.plugins.workflow.flow.GlobalDefaultFlowDurabilityLevel.xml
+ create mode 100644 backup/org.jenkinsci.plugins.workflow.libs.GlobalLibraries.xml
+ create mode 100644 backup/proxy.xml
+ create mode 100644 backup/queue.xml
+ create mode 100644 backup/scriptApproval.xml
+ create mode 100644 backup/thinBackup.xml
+ create mode 100644 backup/userContent/readme.txt
+ create mode 100644 backup/users/admin_4731445619311526131/config.xml
+ create mode 100644 backup/users/gsaraujo_8422704930732708135/config.xml
+ create mode 100644 backup/users/mjaime_4772398675471664435/config.xml
+ create mode 100644 backup/users/tfoliveira_3260062655091681351/config.xml
+ create mode 100644 backup/users/users.xml
+[8mha:////4FddZj78lcbU8cn3l0L9xP592DrZWXx8EKmiX/WWbS8LAAAApB+LCAAAAAAAAP9tjbEKwjAURW8rDq6OfkQKgiCIk2vo4hfENsa04b2avNpOfpG/5j9YLDh5p3vOcl5vLFPEkaNTjaXWU6q86kLvpqcGju018KAavqiKKXGwqrRDybU9zViyWMzLciw0VpaqwMmTE6x1Yx6mCIZccZY4uYNG7us7nsj0VBYT5QtjxObW14np1/kbwNgJsr0g3+66Dz14zOu9AAAA[0m[Pipeline] sh
++ git push origin backup
+remote: 
+remote: To create a merge request for backup, visit:        
+remote:   https://gitlab.banpara.com/recursos/devops-banpara/jenkins/-/merge_requests/new?merge_request%5Bsource_branch%5D=backup        
+remote: 
+To https://gitlab.banpara.com/recursos/devops-banpara/jenkins.git
+   1adb441..ff89b98  backup -> backup
+[8mha:////4Aek3VWBMo3gZSDtKNeBmSMQiyZ6Vzdqz4c4h/OcXCecAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMKRKBASoqK10vACkxjjxLoL9oWk4kV8jT8QEYmKrXammdcbyxRx5OhUY6n1lCqvutC76amBY3sNPKiGL6piShysKu1Qcm1PM5YsFvOyHAuNlaUqcPLkBGvdmIcpgiFXnCVO7qCR+/qOJzI9lcVE+cIYsbn1dWL6df4GMHadIN/uBNn+A6DgJ9K9AAAA[0m[Pipeline] }
+[8mha:////4B2ClRi/E/AgwYnjMZ227OL842WkYv3cA/Jv2XPgDPi3AAAAox+LCAAAAAAAAP9tjbEOgjAURS8YB1dHP6IkLgzGybVh8Qsq1Fpo3sP2IUx+kb/mP0gkcfJO95zlvN5Yp4gjR6daS52nVHvVh8HNT40cu2vgUbV8UTVT4mBVZceKG3tasGKxWJblWGlsLNWBkycn2OrWPEwRDLniLHF2B43cN3c8kem5LCbKF6aI3W1oEtOv8zeAqe8F+b4UZOUHgdT4f70AAAA=[0m[Pipeline] // script
+[8mha:////4HSENz67MXJiUJ1PseIk5eM8AbaWXLgUgo7aivZDIDOyAAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMKRKBASoqK10vACkxjjxLoL9oWk4kV8jT8QEYmKrXammdcbyxRx5OhUY6n1lCqvutC76amBY3sNPKiGL6piShysKu1Qcm1PM5YsFvOyHAuNlaUqcPLkBGvdmIcpgiFXnCVO7qCR+/qOJzI9lcVE+cIYsbn1dWL6df4GMHadIN/uBdnuA8Zzr4q9AAAA[0m[Pipeline] }
+[8mha:////4DjrFYd7WwEEJj6fu5L8mdW/e58XzB6zJHItaBenXdW4AAAApB+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMKRkCgQoqK10vACkxjjxLoL9oWk4kV8jT8QEYmKrXammdcbyxRx5OhUY6n1lCqvutC76amBY3sNPKiGL6piShysKu1Qcm1PM5YsFvOyHAuNlaUqcPLkBGvdmIcpgiFXnCVO7qCR+/qOJzI9lcVE+cIYsbn1dWL6df4GMHadIN/uBdnuA8wLxi69AAAA[0m[Pipeline] // stage
+[8mha:////4Mx4+VmzqgV2MMrXdMmEBBkARbhGhcsJf0vCM4r214x4AAAAox+LCAAAAAAAAP9tjTEOwjAQBDdBFLSUPMJBgg5R0VppeIFJjHFi3QX7QlLxIr7GH4iIRMVWO9PM641lijhydKqx1HpKlVdd6N301MCxvQYeVMMXVTElDlaVdii5tqcZSxaLeVmOhcbKUhU4eXKCtW7MwxTBkCvOEid30Mh9fccTmZ7KYqJ8YYzY3Po6Mf06fwMYu06Q77aCbP8BjoqNn70AAAA=[0m[Pipeline] }
+[8mha:////4L2nzTh9iAQ5v2HgrkYYXMJ02IzDpGLytTbkcxSkT6jtAAAAoh+LCAAAAAAAAP9tjbEOgjAURS8YB1dHP6LEMBon14bFL6hQa6F5D9uHMPlF/pr/IJHEyTvdc5bzemOdIo4cnWotdZ5S7VUfBjc/NXLsroFH1fJF1UyJg1WVHStu7GnBisViWZZjpbGxVAdOnpxgq1vzMEUw5IqzxNkdNHLf3PFEpueymChfmCJ2t6FJTL/O3wCmvhfk5V6QlR+dNok8vQAAAA==[0m[Pipeline] // node
+[8mha:////4ONRjL6/Iibug6QTco4y3ryFZhn2vn3Vo+k1H4cOvdaLAAAAoh+LCAAAAAAAAP9tjbEOgjAURS8YB1dHP6IkOBon14bFL6hQa6F5D9uHMPlF/pr/IJHEyTvdc5bzemOdIo4cnWotdZ5S7VUfBjc/NXLsroFH1fJF1UyJg1WVHStu7GnBisViWZZjpbGxVAdOnpxgq1vzMEUw5IqzxNkdNHLf3PFEpueymChfmCJ2t6FJTL/O3wCmvhfk+1KQlR/bfC4MvQAAAA==[0m[Pipeline] End of Pipeline
+Finished: SUCCESS

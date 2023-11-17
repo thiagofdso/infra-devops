@@ -1,0 +1,75 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@1316.vd2290d3341a_f">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@2.2141.v5402e818a_779"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@2.2141.v5402e818a_779">
+      <jobProperties>
+        <string>jenkins.model.BuildDiscarderProperty</string>
+      </jobProperties>
+      <triggers/>
+      <parameters/>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>10</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <com.dabsquared.gitlabjenkins.connection.GitLabConnectionProperty plugin="gitlab-plugin@1.7.14">
+      <gitLabConnection>gen_jenkins</gitLabConnection>
+      <jobCredentialId></jobCredentialId>
+      <useAlternativeCredential>false</useAlternativeCredential>
+    </com.dabsquared.gitlabjenkins.connection.GitLabConnectionProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@3697.vb_470e454c232">
+    <script>pipeline{
+    agent {
+        label &quot;controlador&quot;
+    }
+    options {
+     //   gitLabConnection(&apos;gen_jenkins&apos;)
+        buildDiscarder(logRotator(numToKeepStr: &quot;10&quot;))
+    }
+    stages {
+        stage(&apos;Obter jenkins.xml&apos;) {
+            steps {
+                script{
+                    sh &apos;pwd&apos;
+                    sh &apos;ls backup&apos;
+                    sh &apos;git init&apos;
+                    sh &apos;git config --list&apos;
+                    sh &quot;git config http.sslVerify false&quot;
+                    sh &quot;git config remote.origin.url https://gen_jenkins:%23RmN3V%23D@gitlab.banpara.com/recursos/devops-banpara/jenkins.git&quot;
+                    sh &quot;git config user.email  &apos;gen_jenkins@banparanet.com&apos;&quot;
+                    sh &quot;git config user.name &apos;gen_jenkins&apos;&quot;
+                    sh &quot;git checkout backup&quot;
+                    sh &quot;git pull -v&quot;
+                    sh &apos;rsync -v -a --remove-source-files backup/FULL*/ backup/&apos;
+                    sh &apos;cd backup&apos;
+                    sh &apos;rm -rf FULL*&apos;
+                    sh &apos;cd ..&apos;
+                    sh &quot;git add backup/*&quot;
+                    sh &quot;git commit -m &apos;Atualizacao backup&apos;&quot;
+                    sh &quot;git push origin backup&quot;
+                }
+            }
+            post {
+                failure {
+                    echo &quot;ERRO&quot;
+                }
+            }
+        }
+    }
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>

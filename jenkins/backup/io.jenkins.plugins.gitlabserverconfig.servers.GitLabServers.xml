@@ -1,0 +1,14 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<io.jenkins.plugins.gitlabserverconfig.servers.GitLabServers plugin="gitlab-branch-source@664.v877fdc293c89">
+  <servers>
+    <io.jenkins.plugins.gitlabserverconfig.servers.GitLabServer>
+      <name>gen_jenkins</name>
+      <serverUrl>https://gitlab.banpara.com/</serverUrl>
+      <manageWebHooks>true</manageWebHooks>
+      <manageSystemHooks>false</manageSystemHooks>
+      <credentialsId>gen_jenkins-GitLabPAT</credentialsId>
+      <webhookSecretCredentialsId>gen_jenkins-GitLabPAT-SecretText</webhookSecretCredentialsId>
+      <immediateHookTrigger>false</immediateHookTrigger>
+    </io.jenkins.plugins.gitlabserverconfig.servers.GitLabServer>
+  </servers>
+</io.jenkins.plugins.gitlabserverconfig.servers.GitLabServers>

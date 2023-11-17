@@ -1,0 +1,14 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<proxy>
+  <name>10.0.1.186</name>
+  <port>8080</port>
+  <userName>servicelinux</userName>
+  <noProxyHost>*.banpara.com
+*.homologacao.com;
+*.desenv.com;
+10.*.*.*;
+192.168.*.*;
+srvpowerbi</noProxyHost>
+  <secretPassword>{AQAAABAAAAAQ4p9El1WaYwlAoRNiqUdgzsMhCcoSXgiNdshU1duaGz8=}</secretPassword>
+  <testUrl>https://gitlab.banpara.com</testUrl>
+</proxy>
