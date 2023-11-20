@@ -1,100 +1,18 @@
-- name: Incluir playbook gitlab-playbook.yaml
-  ansible.builtin.import_playbook: gitlab-playbook.yaml
-  vars:
-    host: nexus
-    git_user: user
-    git_pass: pass
-- name: Instalação do Nexus
-  hosts: nexus
+- name: Configuração de backup do nexus
   become: true  
   gather_facts: false
   vars:
-    versao: "3.62.0-01"
-    upgrade: false
+     host: all
+     restore: false
+  hosts: "{{ host }}"
   environment:
     http_proxy: http://servicelinux:Ab123456@10.0.1.186:8080/
     https_proxy: http://servicelinux:Ab123456@10.0.1.186:8080/
   tasks:
-  - name: Instalação do Java
-    ansible.builtin.yum:
-      name: java-1.8.0-openjdk.x86_64
-      state: present
-      update_cache: yes    
-  - name: Instalar cifs-utils usando yum
-    ansible.builtin.yum:
+  - name: Instalar cifs-utils usando dnf
+    ansible.builtin.dnf:
       name: cifs-utils
       state: present
-  - name: Baixar o arquivo Nexus
-    get_url:
-        url: https://download.sonatype.com/nexus/3/nexus-{{ versao }}-unix.tar.gz
-        dest: /opt/latest-unix.tar.gz
-        validate_certs: no
-        timeout: 30
-  - name: Descompactar nexus
-    ansible.builtin.unarchive:
-      src: /opt/latest-unix.tar.gz
-      dest: /opt/
-      remote_src: yes
-  - name: Checar se a pasta /opt/nexusdata existe
-    stat:
-      path: /opt/nexusdata
-    register: nexusdata_dir
-  - name: Checar se a pasta /opt/nexus existe
-    stat:
-      path: /opt/nexus
-    register: nexus_dir
-  - name: Executar ação com base na existência da pasta /opt/nexusdata
-    block:
-      - name: Apagar a pasta /opt/sonatype-work se /opt/nexusdata existir
-        command: rm -rf /opt/sonatype-work
-        when: nexusdata_dir.stat.exists
-      - name: Renomear a pasta /opt/sonatype-work para /opt/nexusdata se /opt/nexusdata não existir
-        command: mv /opt/sonatype-work /opt/nexusdata
-        when: not nexusdata_dir.stat.exists
-    rescue:
-      - name: Lidar com erros (opcional)
-        debug:
-          msg: "Ocorreu um erro ao executar as operações."
-  - name: Executar ação com base na existência da pasta /opt/nexus
-    block:
-      - name: Apagar a pasta /opt/nexus-{{ versao }} se /opt/nexus existir
-        command: rm -rf /opt/nexus-{{ versao }}
-        when: nexus_dir.stat.exists and not upgrade
-      - name: Apagar a pasta /opt/nexus para fazer upgrade
-        when: upgrade
-        command: rm -rf /opt/nexus
-      - name: Renomear a pasta /opt/nexus-{{ versao }} para /opt/nexus se /opt/nexus não existir ou for upgrade
-        command: mv /opt/nexus-{{ versao }} /opt/nexus
-        when: upgrade or not nexus_dir.stat.exists
-    rescue:
-      - name: Lidar com erros (opcional)
-        debug:
-          msg: "Ocorreu um erro ao executar as operações."
-  - name: Criar usuário nexus
-    ansible.builtin.user:
-      name: nexus
-      comment: "Nexus User"
-      home: /opt/nexus
-      createhome: no
-      shell: /bin/bash
-  - name: Alterar owner e group de /opt/nexus para nexus
-    ansible.builtin.file:
-      path: /opt/nexus
-      owner: nexus
-      group: nexus
-      recurse: yes
-  - name: Alterar owner e group de /opt/nexusdata para nexus
-    ansible.builtin.file:
-      path: /opt/nexusdata
-      owner: nexus
-      group: nexus
-      recurse: yes
-  - name: Habilitar porta 443
-    firewalld:
-      zone: public
-      port: 443/tcp
-      permanent: true
-      state: enabled
   - name: Copiar arquivos para diretórios específicos
     ansible.builtin.copy:
       src: "/tmp/infra-devops/nexus/{{ item.src }}"
@@ -104,20 +22,8 @@
       mode: "{{ item.mode | default('0644') }}"
       remote_src: true
     loop:
-      - { src: 'nexus.vmoptions', dest: '/opt/nexus/bin/nexus.vmoptions' }
-      - { src: 'nexus.rc', dest: '/opt/nexus/bin/nexus.rc' }
-      - { src: 'nexus-default.properties', dest: '/opt/nexus/etc/nexus-default.properties' }
-      - { src: 'jetty-https.xml', dest: '/opt/nexus/etc/jetty/jetty-https.xml' }
-      - { src: 'limits.conf', dest: '/etc/security/limits.conf' }
-      - { src: 'nexus.service', dest: '/etc/systemd/system/nexus.service' }
       - { src: 'nexus_backup.sh', dest: '/opt/script/nexus_backup.sh' }
       - { src: 'nexus_log_clean.sh', dest: '/opt/script/nexus_log_clean.sh' }
-  - name: Recarregar o daemon do systemd para refletir as alterações
-    systemd:
-      name: nexus
-      daemon_reload: true
-      enabled: yes
-      state: started
   - name: Adicionar entrada de cron para backup
     ansible.builtin.cron:
       name: "Backup Nexus"

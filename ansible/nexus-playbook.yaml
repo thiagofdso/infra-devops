@@ -20,10 +20,6 @@
       name: java-1.8.0-openjdk.x86_64
       state: present
       update_cache: yes    
-  - name: Instalar cifs-utils usando yum
-    ansible.builtin.dnf:
-      name: cifs-utils
-      state: present
   - name: Baixar o arquivo Nexus
     get_url:
         url: https://download.sonatype.com/nexus/3/nexus-{{ versao }}-unix.tar.gz
@@ -58,13 +54,20 @@
   - name: Executar ação com base na existência da pasta /opt/nexus
     block:
       - name: Apagar a pasta /opt/nexus-{{ versao }} se /opt/nexus existir
-        command: rm -rf /opt/nexus-{{ versao }}
+        file:
+          path: /opt/nexus-{{ versao }}
+          state: absent
         when: nexus_dir.stat.exists and not upgrade
       - name: Apagar a pasta /opt/nexus para fazer upgrade
+        file:
+          path: /opt/nexus
+          state: absent
         when: upgrade
-        command: rm -rf /opt/nexus
       - name: Renomear a pasta /opt/nexus-{{ versao }} para /opt/nexus se /opt/nexus não existir ou for upgrade
-        command: mv /opt/nexus-{{ versao }} /opt/nexus
+        file:
+          src: /opt/nexus-{{ versao }}
+          dest: /opt/nexus
+          state: link 
         when: upgrade or not nexus_dir.stat.exists
     rescue:
       - name: Lidar com erros (opcional)
@@ -110,29 +113,14 @@
       - { src: 'jetty-https.xml', dest: '/opt/nexus/etc/jetty/jetty-https.xml' }
       - { src: 'limits.conf', dest: '/etc/security/limits.conf' }
       - { src: 'nexus.service', dest: '/etc/systemd/system/nexus.service' }
-      - { src: 'nexus_backup.sh', dest: '/opt/script/nexus_backup.sh' }
-      - { src: 'nexus_log_clean.sh', dest: '/opt/script/nexus_log_clean.sh' }
   - name: Recarregar o daemon do systemd para refletir as alterações
     systemd:
       name: nexus
       daemon_reload: true
       enabled: yes
       state: started
-  - name: Adicionar entrada de cron para backup
-    ansible.builtin.cron:
-      name: "Backup Nexus"
-      minute: 0
-      hour: 18
-      weekday: 5
-      job: "/opt/script/nexus_backup.sh > /tmp/backup.log 2>&1"
-  - name: Adicionar entrada de cron para limpeza de logs
-    ansible.builtin.cron:
-      name: "Limpeza de Logs Nexus"
-      minute: 0
-      hour: 18
-      job: "/opt/script/nexus_log_clean.sh > /tmp/cleanfiles.log 2>&1"
-  - name: Adicionar ponto de montagem ao /etc/fstab
-    lineinfile:
-      path: /etc/fstab
-      line: "//fileserver.banpara.com/publica/BackupDevops/nexus /mnt/win_share cifs rw,credentials=/etc/nfs-credentials 0 0"
-      insertafter: EOF 
+- name: Incluir playbook backup-nexus-playbook.yaml
+  import_playbook: backup-nexus-playbook.yaml
+  vars:
+    host: nexus
+    restore: false
