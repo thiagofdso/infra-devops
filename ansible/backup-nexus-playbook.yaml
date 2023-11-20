@@ -44,7 +44,7 @@
       content: |
         username={{ nfs_user }}
         password={{ nfs_pass }}
-      dest: /etc/nfs-credentialsss
+      dest: /etc/nfs-credentials
       mode: 0644
   - name: Adicionar ponto de montagem ao /etc/fstab
     lineinfile:
