@@ -4,6 +4,8 @@
   vars:
      host: all
      restore: false
+     nfs_user: user
+     nfs_pass: pass
   hosts: "{{ host }}"
   environment:
     http_proxy: http://servicelinux:Ab123456@10.0.1.186:8080/
@@ -37,6 +39,13 @@
       minute: 0
       hour: 18
       job: "/opt/script/nexus_log_clean.sh > /tmp/cleanfiles.log 2>&1"
+  - name: Criar arquivo /etc/nfs-credentials
+    copy:
+      content: |
+        username={{ nfs_user }}
+        password={{ nfs_pass }}
+      dest: /etc/nfs-credentialsss
+      mode: 0644
   - name: Adicionar ponto de montagem ao /etc/fstab
     lineinfile:
       path: /etc/fstab
