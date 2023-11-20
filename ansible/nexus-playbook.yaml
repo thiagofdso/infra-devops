@@ -1,5 +1,5 @@
 - name: Incluir playbook gitlab-playbook.yaml
-  ansible.builtin.import_playbook: gitlab-playbook.yaml
+  import_playbook: gitlab-playbook.yaml
   vars:
     host: nexus
     git_user: user
@@ -16,12 +16,12 @@
     https_proxy: http://servicelinux:Ab123456@10.0.1.186:8080/
   tasks:
   - name: Instalação do Java
-    ansible.builtin.yum:
+    ansible.builtin.dnf:
       name: java-1.8.0-openjdk.x86_64
       state: present
       update_cache: yes    
   - name: Instalar cifs-utils usando yum
-    ansible.builtin.yum:
+    ansible.builtin.dnf:
       name: cifs-utils
       state: present
   - name: Baixar o arquivo Nexus

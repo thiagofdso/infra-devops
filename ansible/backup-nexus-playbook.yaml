@@ -1,24 +1,25 @@
-- name: Instalação do Jenkins
+- name: Incluir playbook gitlab-playbook.yaml
+  ansible.builtin.import_playbook: gitlab-playbook.yaml
+  vars:
+    host: nexus
+    git_user: user
+    git_pass: pass
+- name: Instalação do Nexus
   hosts: nexus
-  become: true
+  become: true  
+  gather_facts: false
   vars:
     versao: "3.62.0-01"
     upgrade: false
   environment:
     http_proxy: http://servicelinux:Ab123456@10.0.1.186:8080/
     https_proxy: http://servicelinux:Ab123456@10.0.1.186:8080/
-    no_proxy: .desenv.com,.banpara.com
-    GIT_SSL_CAINFO: /etc/ssl/certs/banparaca.pem
   tasks:
   - name: Instalação do Java
     ansible.builtin.yum:
       name: java-1.8.0-openjdk.x86_64
       state: present
       update_cache: yes    
-  - name: Instalar Git
-    ansible.builtin.yum:
-      name: git
-      state: present
   - name: Instalar cifs-utils usando yum
     ansible.builtin.yum:
       name: cifs-utils
@@ -88,46 +89,35 @@
       owner: nexus
       group: nexus
       recurse: yes
-  - name: Criar arquivo banparaca.pem
-    copy:
-      content: |
-        -----BEGIN CERTIFICATE-----
-        MIIDrTCCApWgAwIBAgIQXVEG+vzwlIVPNtZphBQHKTANBgkqhkiG9w0BAQsFADBK
-        MRMwEQYKCZImiZPyLGQBGRYDY29tMRcwFQYKCZImiZPyLGQBGRYHYmFucGFyYTEa
-        MBgGA1UEAxMRY2VydGlzaWduLWJhbnBhcmEwHhcNMjEwNDE5MjM1NjQxWhcNMjYw
-        NDIwMDAwNjQwWjBKMRMwEQYKCZImiZPyLGQBGRYDY29tMRcwFQYKCZImiZPyLGQB
-        GRYHYmFucGFyYTEaMBgGA1UEAxMRY2VydGlzaWduLWJhbnBhcmEwggEiMA0GCSqG
-        SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCVgsP2qOeuIbBAwHBnNJoek9cujGV0qtKm
-        7A0gHrTYYqtGL8wJVpB8cB4Cpk2U9Yu5ePkfpOBQLuw5sm/jFTChimZFEFSL6R5s
-        LbZ13/M1FnpfVss56mE0+SKCRcPU2XaYnDltieHIb17Yn25R16UuiLm808+PUXqM
-        8yAN9oIqg4Tyf/TaiuObii3NSnhMafTLZPY288caBFnmo0mAvxoy17qTidp5KMVe
-        CXJ5uFrzOAZ9UGLimGfHQKJBv0rnkvoxUb3SXfeHAuQL+iLVKfsX4Av0jxf4/7xl
-        qzOonObCvXok0a5YqioyVq75SO38afC7rGOFW5EPsEC95uhEJIeBAgMBAAGjgY4w
-        gYswEwYJKwYBBAGCNxQCBAYeBABDAEEwCwYDVR0PBAQDAgGGMA8GA1UdEwEB/wQF
-        MAMBAf8wHQYDVR0OBBYEFC17Qr0D2y0mnGWjIOm0mjx5j53tMBIGCSsGAQQBgjcV
-        AQQFAgMBAAEwIwYJKwYBBAGCNxUCBBYEFJjXsltHZl1mqSnW9CV0X6nj5k6UMA0G
-        CSqGSIb3DQEBCwUAA4IBAQBxl/kT4ksHeQzTHkTCuYlxxmtwQC+1KZ9JCWkPjg/s
-        aaxNhUOkVs2Lrq+ACvqCxr+ZGQvanVWB0rZWE7ZB7S4hng0BSCL5O+FfeCZNfpq2
-        1Widx6qU7IIjyqf+8seC+Zl4cfrkn9uc/pHI5Wq4nOYdXJZt3Aw3hjOGVxVU6tCZ
-        BJlG7KfWnaq2HtNkPZ9iOoRi1vrzaCuzLW0J68Tj0AO1NWqyofnYw1sDVfE+VDO/
-        RkmBQSzmVYCEdJVNKZJlgtuM6T1ZgU1OlwOc5+pmWQ+jc8k5R6bAAPMTXeym1STZ
-        uJX1Ekpb9HMUF03Y8/EKFMVDdxK/g4JyP51CnTybC+cK
-        -----END CERTIFICATE-----
-      dest: /etc/ssl/certs/banparaca.pem
-      mode: 0644
-      #  - name: Configurar certificado do GitLab
-      # command: git config --global http.sslCAInfo /etc/ssl/certs/banparaca.pem
-  - name: Clonar repositório do GitLab
-    git:
-      repo: https://gen_jenkins:%23RmN3V%23D@gitlab.banpara.com/recursos/devops-banpara/infra-devops
-      dest: /tmp/infra-devops
-      version: nexus
   - name: Habilitar porta 443
     firewalld:
       zone: public
       port: 443/tcp
       permanent: true
       state: enabled
+  - name: Copiar arquivos para diretórios específicos
+    ansible.builtin.copy:
+      src: "/tmp/infra-devops/nexus/{{ item.src }}"
+      dest: "{{ item.dest }}"
+      owner: nexus
+      group: nexus
+      mode: "{{ item.mode | default('0644') }}"
+      remote_src: true
+    loop:
+      - { src: 'nexus.vmoptions', dest: '/opt/nexus/bin/nexus.vmoptions' }
+      - { src: 'nexus.rc', dest: '/opt/nexus/bin/nexus.rc' }
+      - { src: 'nexus-default.properties', dest: '/opt/nexus/etc/nexus-default.properties' }
+      - { src: 'jetty-https.xml', dest: '/opt/nexus/etc/jetty/jetty-https.xml' }
+      - { src: 'limits.conf', dest: '/etc/security/limits.conf' }
+      - { src: 'nexus.service', dest: '/etc/systemd/system/nexus.service' }
+      - { src: 'nexus_backup.sh', dest: '/opt/script/nexus_backup.sh' }
+      - { src: 'nexus_log_clean.sh', dest: '/opt/script/nexus_log_clean.sh' }
+  - name: Recarregar o daemon do systemd para refletir as alterações
+    systemd:
+      name: nexus
+      daemon_reload: true
+      enabled: yes
+      state: started
   - name: Adicionar entrada de cron para backup
     ansible.builtin.cron:
       name: "Backup Nexus"

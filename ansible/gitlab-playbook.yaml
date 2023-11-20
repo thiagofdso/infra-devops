@@ -38,7 +38,7 @@
       dest: /etc/ssl/certs/banparaca.pem
       mode: 0644
   - name: Instalar Git
-    ansible.builtin.yum:
+    ansible.builtin.dnf:
       name: git
       state: present
   - name: Clonar repositório do GitLab
