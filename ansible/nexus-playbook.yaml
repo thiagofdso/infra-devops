@@ -11,6 +11,7 @@
   vars:
     versao: "3.62.0-01"
     upgrade: false
+    restore: false
   environment:
     http_proxy: http://servicelinux:Ab123456@10.0.1.186:8080/
     https_proxy: http://servicelinux:Ab123456@10.0.1.186:8080/
@@ -41,12 +42,22 @@
     register: nexus_dir
   - name: Executar ação com base na existência da pasta /opt/nexusdata
     block:
+      - name: Apagar a pasta /opt/nexusdata para fazer restore
+        file:
+          path: /opt/nexusdata
+          state: absent
+        when: restore | bool
       - name: Apagar a pasta /opt/sonatype-work se /opt/nexusdata existir
-        command: rm -rf /opt/sonatype-work
-        when: nexusdata_dir.stat.exists
+        file:
+          path: /opt/sonatype-work
+          state: absent
+        when: nexusdata_dir.stat.exists and not restore
       - name: Renomear a pasta /opt/sonatype-work para /opt/nexusdata se /opt/nexusdata não existir
-        command: mv /opt/sonatype-work /opt/nexusdata
-        when: not nexusdata_dir.stat.exists
+        file:
+          src: /opt/sonatype-work
+          dest: /opt/nexusdata
+          state: directory
+        when: restore or not nexusdata_dir.stat.exists
     rescue:
       - name: Lidar com erros (opcional)
         debug:
@@ -67,7 +78,7 @@
         file:
           src: /opt/nexus-{{ versao }}
           dest: /opt/nexus
-          state: link 
+          state: directory
         when: upgrade or not nexus_dir.stat.exists
     rescue:
       - name: Lidar com erros (opcional)

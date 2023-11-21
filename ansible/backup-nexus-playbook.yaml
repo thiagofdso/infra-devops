@@ -21,7 +21,7 @@
       dest: "{{ item.dest }}"
       owner: nexus
       group: nexus
-      mode: "{{ item.mode | default('0644') }}"
+      mode: "{{ item.mode | default('0777') }}"
       remote_src: true
     loop:
       - { src: 'nexus_backup.sh', dest: '/opt/script/nexus_backup.sh' }
@@ -30,8 +30,7 @@
     ansible.builtin.cron:
       name: "Backup Nexus"
       minute: 0
-      hour: 18
-      weekday: 5
+      hour: 23
       job: "/opt/script/nexus_backup.sh > /tmp/backup.log 2>&1"
   - name: Adicionar entrada de cron para limpeza de logs
     ansible.builtin.cron:
@@ -50,4 +49,78 @@
     lineinfile:
       path: /etc/fstab
       line: "//fileserver.banpara.com/publica/BackupDevops/nexus /mnt/win_share cifs rw,credentials=/etc/nfs-credentials 0 0"
-      insertafter: EOF 
+      insertafter: EOF
+  - name: Executar mount -a
+    command: mount -a
+  - name: Encontrar o arquivo .tar.gz mais recente em /mnt/win_share/
+    find:
+      paths: /mnt/win_share/
+      patterns: "*.tar.gz"
+    register: latest_tar
+    when: restore | bool
+  - name: Copiar o arquivo .tar.gz mais recente para /tmp/
+    ansible.builtin.copy:
+      src: "{{ latest_tar.files[-1].path | default('') }}"
+      dest: "/tmp/latest_archive.tar.gz"
+      remote_src: yes
+    when: restore | bool
+  - name: Descompactar o arquivo .tar.gz em /tmp/
+    ansible.builtin.unarchive:
+      src: "/tmp/latest_archive.tar.gz"
+      dest: "/tmp/"
+      remote_src: yes
+    when: restore | bool
+  - name: Parar serviço nexus
+    systemd:
+      name: nexus
+      state: stopped
+    when: restore | bool
+  - name: Remover as pastas existentes
+    ansible.builtin.file:
+      path: "{{ item }}"
+      state: absent
+    loop:
+      - /opt/nexusdata/nexus3/db
+      - /opt/nexusdata/nexus3/blobs
+      - /opt/nexusdata/nexus3/etc/ssl
+    when: restore | bool
+  - name: Copiar as pastas /tmp/db, /tmp/blobs e /tmp/etc para /opt/nexusdata/nexus3/
+    ansible.builtin.copy:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      owner: nexus
+      group: nexus
+      mode: "{{ item.mode | default('0755') }}"
+      remote_src: true
+    loop:
+      - { src: '/tmp/blobs', dest: '/opt/nexusdata/nexus3/' }
+      - { src: '/tmp/db', dest: '/opt/nexusdata/nexus3/' }
+      - { src: '/tmp/etc/ssl', dest: '/opt/nexusdata/nexus3/etc/' }
+    when: restore | bool
+  - name: Remover as pastas /tmp/blobs, /tmp/db e /tmp/etc
+    ansible.builtin.file:
+      path: "{{ item }}"
+      state: absent
+    loop:
+      - '/tmp/blobs'
+      - '/tmp/db'
+      - '/tmp/etc'
+      - '/tmp/latest_archive.tar.gz'
+    when: restore | bool
+  - name: Remover pasta /tmp/etc
+    ansible.builtin.file:
+      path: /tmp/etc
+      state: absent
+    when: restore | bool
+  - name: Alterar owner e group de /opt/nexusdata para nexus
+    ansible.builtin.file:
+      path: /opt/nexusdata
+      owner: nexus
+      group: nexus
+      recurse: yes
+    when: restore | bool
+  - name: Iniciar serviço nexus
+    systemd:
+      name: nexus
+      state: started
+    when: restore | bool
