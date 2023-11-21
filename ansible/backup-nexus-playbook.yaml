@@ -83,6 +83,7 @@
       - /opt/nexusdata/nexus3/db
       - /opt/nexusdata/nexus3/blobs
       - /opt/nexusdata/nexus3/etc/ssl
+      - /opt/nexusdata/nexus3/keystores
     when: restore | bool
   - name: Copiar as pastas /tmp/db, /tmp/blobs e /tmp/etc para /opt/nexusdata/nexus3/
     ansible.builtin.copy:
@@ -96,6 +97,7 @@
       - { src: '/tmp/blobs', dest: '/opt/nexusdata/nexus3/' }
       - { src: '/tmp/db', dest: '/opt/nexusdata/nexus3/' }
       - { src: '/tmp/etc/ssl', dest: '/opt/nexusdata/nexus3/etc/' }
+      - { src: '/tmp/keystores', dest: '/opt/nexusdata/nexus3/' }  
     when: restore | bool
   - name: Remover as pastas /tmp/blobs, /tmp/db e /tmp/etc
     ansible.builtin.file:
@@ -105,6 +107,7 @@
       - '/tmp/blobs'
       - '/tmp/db'
       - '/tmp/etc'
+      - '/tmp/keystores'
       - '/tmp/latest_archive.tar.gz'
     when: restore | bool
   - name: Remover pasta /tmp/etc
@@ -122,5 +125,7 @@
   - name: Iniciar serviço nexus
     systemd:
       name: nexus
+      daemon_reload: true
+      enabled: yes
       state: started
     when: restore | bool

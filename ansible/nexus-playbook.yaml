@@ -40,6 +40,11 @@
     stat:
       path: /opt/nexus
     register: nexus_dir
+  - name: Parar serviço nexus
+    systemd:
+      name: nexus
+      state: stopped
+    when: update or restore | bool
   - name: Executar ação com base na existência da pasta /opt/nexusdata
     block:
       - name: Apagar a pasta /opt/nexusdata para fazer restore
@@ -130,6 +135,7 @@
       daemon_reload: true
       enabled: yes
       state: started
+    when: not restore | bool
 - name: Incluir playbook backup-nexus-playbook.yaml
   import_playbook: backup-nexus-playbook.yaml
   vars:
