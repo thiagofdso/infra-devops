@@ -38,7 +38,7 @@ pwd
 
 #compactando pastas de dados
 echo “COMPACTANDO PASTAS”
-tar -czf nexus_backup.tar.gz db/ blobs/
+tar -czf nexus_backup.tar.gz db/ blobs/ etc/ssl/
 
 #movendo para pastas de backup
 echo “MOVENDO PARA PASTA DE BACKUP”
