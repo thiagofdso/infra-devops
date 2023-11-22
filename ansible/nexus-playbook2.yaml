@@ -1,0 +1,16 @@
+- name: Instalação do Nexus
+  hosts: nexus
+  become: true
+  gather_facts: true
+  vars:
+    versao: "3.62.0-01"
+    upgrade: false
+    restore: false
+  tasks:
+  - name: Copy sonatype-work to nexusdata
+    file:
+       src: /opt/sonatype-work/
+       dest: /opt/nexusdata/
+       remote_src: yes
+
+

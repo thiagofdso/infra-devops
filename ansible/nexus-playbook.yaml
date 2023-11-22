@@ -44,7 +44,7 @@
     systemd:
       name: nexus
       state: stopped
-    when: update or restore | bool
+    when: upgrade or restore | bool
   - name: Executar ação com base na existência da pasta /opt/nexusdata
     block:
       - name: Apagar a pasta /opt/nexusdata para fazer restore
@@ -52,39 +52,45 @@
           path: /opt/nexusdata
           state: absent
         when: restore | bool
-      - name: Apagar a pasta /opt/sonatype-work se /opt/nexusdata existir
+      - name: Criar a pasta /opt/nexusdata
+        file:
+          path: /opt/nexusdata
+          state: directory
+      - name: Copiar da pasta /opt/sonatype-work para /opt/nexusdata se /opt/nexusdata não existir ou for um restore
+        ansible.builtin.copy:
+          src: "/opt/sonatype-work/"
+          dest: "/opt/nexusdata/"
+          remote_src: yes
+        when: restore or not nexusdata_dir.stat.exists
+      - name: Apagar a pasta /opt/sonatype-work
         file:
           path: /opt/sonatype-work
           state: absent
-        when: nexusdata_dir.stat.exists and not restore
-      - name: Renomear a pasta /opt/sonatype-work para /opt/nexusdata se /opt/nexusdata não existir
-        file:
-          src: /opt/sonatype-work
-          dest: /opt/nexusdata
-          state: directory
-        when: restore or not nexusdata_dir.stat.exists
     rescue:
       - name: Lidar com erros (opcional)
         debug:
           msg: "Ocorreu um erro ao executar as operações."
   - name: Executar ação com base na existência da pasta /opt/nexus
     block:
-      - name: Apagar a pasta /opt/nexus-{{ versao }} se /opt/nexus existir
-        file:
-          path: /opt/nexus-{{ versao }}
-          state: absent
-        when: nexus_dir.stat.exists and not upgrade
-      - name: Apagar a pasta /opt/nexus para fazer upgrade
+      - name: Apagar pasta /opt/nexus para fazer upgrade
         file:
           path: /opt/nexus
           state: absent
         when: upgrade
-      - name: Renomear a pasta /opt/nexus-{{ versao }} para /opt/nexus se /opt/nexus não existir ou for upgrade
+      - name: Criar a pasta /opt/nexus 
         file:
-          src: /opt/nexus-{{ versao }}
-          dest: /opt/nexus
+          path: /opt/nexus
           state: directory
+      - name: Copiar da pasta /opt/nexus-{{ versao }} para /opt/nexus se /opt/nexus não existir ou for upgrade
+        ansible.builtin.copy:
+          src: /opt/nexus-{{ versao }}/
+          dest: /opt/nexus/
+          remote_src: yes
         when: upgrade or not nexus_dir.stat.exists
+      - name: Apagar a pasta /opt/nexus-{{ versao }}
+        file:
+          path: /opt/nexus-{{ versao }}
+          state: absent
     rescue:
       - name: Lidar com erros (opcional)
         debug:
@@ -120,7 +126,7 @@
       dest: "{{ item.dest }}"
       owner: nexus
       group: nexus
-      mode: "{{ item.mode | default('0644') }}"
+      mode: "{{ item.mode | default('0755') }}"
       remote_src: true
     loop:
       - { src: 'nexus.vmoptions', dest: '/opt/nexus/bin/nexus.vmoptions' }

@@ -1,6 +1,6 @@
 - name: Configuração de backup do nexus
   become: true  
-  gather_facts: false
+  gather_facts: true
   vars:
      host: all
      restore: false
@@ -94,9 +94,9 @@
       mode: "{{ item.mode | default('0755') }}"
       remote_src: true
     loop:
-      - { src: '/tmp/blobs', dest: '/opt/nexusdata/nexus3/' }
-      - { src: '/tmp/db', dest: '/opt/nexusdata/nexus3/' }
-      - { src: '/tmp/etc/ssl', dest: '/opt/nexusdata/nexus3/etc/' }
+      - { src: '/tmp/blobs',     dest: '/opt/nexusdata/nexus3/' }
+      - { src: '/tmp/db',        dest: '/opt/nexusdata/nexus3/' }
+      - { src: '/tmp/etc',   dest: '/opt/nexusdata/nexus3/' }
       - { src: '/tmp/keystores', dest: '/opt/nexusdata/nexus3/' }  
     when: restore | bool
   - name: Remover as pastas /tmp/blobs, /tmp/db e /tmp/etc
