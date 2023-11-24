@@ -9,7 +9,7 @@ function LimpaArquivos () {
 
 	numero_arquivos=$(ls -1 | wc -l)
 	if [ "$numero_arquivos" -gt 1 ]; then
-	   # Listar os arquivos por data e hora e manter os 3 últimos
+	   # Listar os arquivos por data e hora e manter o último
 	   arquivos_a_manter=$(ls -1t | head -n 1)
 	   # Listar os arquivos restantes (para exclusão)
 	   arquivos_a_remover=$(ls -1t | tail -n +2)
