@@ -9,7 +9,7 @@ function LimpaArquivos () {
 
 	numero_arquivos=$(ls -1 | wc -l)
 	if [ "$numero_arquivos" -gt 1 ]; then
-	   # Listar os arquivos por data e hora e manter o último
+	   # Listar os arquivos por data e hora e manter o  último
 	   arquivos_a_manter=$(ls -1t | head -n 1)
 	   # Listar os arquivos restantes (para exclusão)
 	   arquivos_a_remover=$(ls -1t | tail -n +2)
@@ -34,6 +34,14 @@ echo “INICIANDO BACKUP”
 cd $NEXUS_DATA
 
 pwd
+
+rm upgrade/*
+
+curl -k -X POST --netrc-file /etc/my-password-file 'https://dev-nexus.desenv.com/service/rest/v1/tasks/500e0f57-a796-47a0-a2cd-31a017612194/run'
+
+sleep 3 
+
+rm upgrade/analytics-*
 
 #compactando pastas de dados
 echo “COMPACTANDO PASTAS”
