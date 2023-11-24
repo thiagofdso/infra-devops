@@ -15,6 +15,17 @@
     ansible.builtin.dnf:
       name: cifs-utils
       state: present
+  - name: Copiar arquivos para diretórios específicos
+    ansible.builtin.copy:
+      src: "/tmp/infra-devops/nexus/{{ item.src }}"
+      dest: "{{ item.dest }}"
+      owner: nexus
+      group: nexus
+      mode: "{{ item.mode | default('0777') }}"
+      remote_src: true
+    loop:
+      - { src: 'nexus_backup.sh', dest: '/opt/script/nexus_backup.sh' }
+      - { src: 'nexus_log_clean.sh', dest: '/opt/script/nexus_log_clean.sh' }
   - name: Adicionar entrada de cron para backup
     ansible.builtin.cron:
       name: "Backup Nexus"
@@ -69,19 +80,12 @@
       path: "{{ item }}"
       state: absent
     loop:
-      - /opt/nexusdata/nexus3/db/security
-      - /opt/nexusdata/nexus3/db/config
-      - /opt/nexusdata/nexus3/db/component
+      - /opt/nexusdata/nexus3/db
       - /opt/nexusdata/nexus3/blobs
       - /opt/nexusdata/nexus3/etc/ssl
       - /opt/nexusdata/nexus3/keystores
     when: restore | bool
-  - name: Criar o diretório /opt/nexusdata/restore-from-backup
-    ansible.builtin.file:
-      path: "/opt/nexusdata/restore-from-backup"
-      state: directory
-    when: restore | bool
-  - name: Copiar as pastas blobs etc keystores e arquivos .bak
+  - name: Copiar as pastas /tmp/db, /tmp/blobs e /tmp/etc para /opt/nexusdata/nexus3/
     ansible.builtin.copy:
       src: "{{ item.src }}"
       dest: "{{ item.dest }}"
@@ -90,18 +94,20 @@
       mode: "{{ item.mode | default('0755') }}"
       remote_src: true
     loop:
-      - { src: '/tmp/nexus3/blobs',     dest: '/opt/nexusdata/nexus3/' }
-      - { src: '/tmp/upgrade/',        dest: '/opt/nexusdata/restore-from-backup/' }
-      - { src: '/tmp/nexus3/etc',   dest: '/opt/nexusdata/nexus3/' }
-      - { src: '/tmp/nexus3/keystores', dest: '/opt/nexusdata/nexus3/' }
+      - { src: '/tmp/blobs',     dest: '/opt/nexusdata/nexus3/' }
+      - { src: '/tmp/db',        dest: '/opt/nexusdata/nexus3/' }
+      - { src: '/tmp/etc',   dest: '/opt/nexusdata/nexus3/' }
+      - { src: '/tmp/keystores', dest: '/opt/nexusdata/nexus3/' }  
     when: restore | bool
   - name: Remover as pastas /tmp/blobs, /tmp/db e /tmp/etc
     ansible.builtin.file:
       path: "{{ item }}"
       state: absent
     loop:
-      - '/tmp/upgrade'
-      - '/tmp/nexus3'
+      - '/tmp/blobs'
+      - '/tmp/db'
+      - '/tmp/etc'
+      - '/tmp/keystores'
       - '/tmp/latest_archive.tar.gz'
     when: restore | bool
   - name: Remover pasta /tmp/etc
@@ -123,13 +129,3 @@
       enabled: yes
       state: started
     when: restore | bool
-  - name: Aguardar 4 minutos
-    pause:
-      seconds: 240
-    when: restore | bool
-  - name: Apagar o diretório /opt/nexusdata/restore-from-backup
-    ansible.builtin.file:
-      path: "/opt/nexusdata/restore-from-backup"
-      state: absent
-    when: restore | bool
-

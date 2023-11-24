@@ -135,7 +135,9 @@
       - { src: 'jetty-https.xml', dest: '/opt/nexus/etc/jetty/jetty-https.xml' }
       - { src: 'limits.conf', dest: '/etc/security/limits.conf' }
       - { src: 'nexus.service', dest: '/etc/systemd/system/nexus.service' }
-  - name: Recarregar o daemon do systemd para refletir as alterações
+      - { src: 'nexus_backup.sh', dest: '/opt/script/nexus_backup.sh' }
+      - { src: 'nexus_log_clean.sh', dest: '/opt/script/nexus_log_clean.sh' }
+      - name: Recarregar o daemon do systemd para refletir as alterações
     systemd:
       name: nexus
       daemon_reload: true
