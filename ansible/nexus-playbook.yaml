@@ -137,7 +137,7 @@
       - { src: 'nexus.service', dest: '/etc/systemd/system/nexus.service' }
       - { src: 'nexus_backup.sh', dest: '/opt/script/nexus_backup.sh' }
       - { src: 'nexus_log_clean.sh', dest: '/opt/script/nexus_log_clean.sh' }
-      - name: Recarregar o daemon do systemd para refletir as alterações
+  - name: Recarregar o daemon do systemd para refletir as alterações
     systemd:
       name: nexus
       daemon_reload: true
