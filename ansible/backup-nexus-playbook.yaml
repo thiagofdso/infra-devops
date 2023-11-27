@@ -78,7 +78,7 @@
     when: restore | bool
   - name: Criar o diretório /opt/nexusdata/restore-from-backup
     ansible.builtin.file:
-      path: "/opt/nexusdata/restore-from-backup"
+      path: "/opt/nexusdata/nexus3/restore-from-backup"
       state: directory
     when: restore | bool
   - name: Copiar as pastas blobs etc keystores e arquivos .bak
@@ -91,7 +91,7 @@
       remote_src: true
     loop:
       - { src: '/tmp/nexus3/blobs',     dest: '/opt/nexusdata/nexus3/' }
-      - { src: '/tmp/upgrade/',        dest: '/opt/nexusdata/restore-from-backup/' }
+      - { src: '/tmp/upgrade/',        dest: '/opt/nexusdata/nexus3/restore-from-backup/' }
       - { src: '/tmp/nexus3/etc',   dest: '/opt/nexusdata/nexus3/' }
       - { src: '/tmp/nexus3/keystores', dest: '/opt/nexusdata/nexus3/' }
     when: restore | bool
@@ -129,7 +129,7 @@
     when: restore | bool
   - name: Apagar o diretório /opt/nexusdata/restore-from-backup
     ansible.builtin.file:
-      path: "/opt/nexusdata/restore-from-backup"
+      path: "/opt/nexusdata/nexus3/restore-from-backup"
       state: absent
     when: restore | bool
 
