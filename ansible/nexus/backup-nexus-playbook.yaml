@@ -48,23 +48,31 @@
       patterns: "*.tar.gz"
     register: latest_tar
     when: restore | bool
+    tags:
+      - restore
   - name: Copiar o arquivo .tar.gz mais recente para /tmp/
     ansible.builtin.copy:
       src: "{{ latest_tar.files[-1].path | default('') }}"
       dest: "/tmp/latest_archive.tar.gz"
       remote_src: yes
     when: restore | bool
+    tags:
+      - restore
   - name: Descompactar o arquivo .tar.gz em /tmp/
     ansible.builtin.unarchive:
       src: "/tmp/latest_archive.tar.gz"
       dest: "/tmp/"
       remote_src: yes
     when: restore | bool
+    tags:
+      - restore
   - name: Parar serviço nexus
     systemd:
       name: nexus
       state: stopped
     when: restore | bool
+    tags:
+      - restore
   - name: Remover as pastas existentes
     ansible.builtin.file:
       path: "{{ item }}"
@@ -77,11 +85,15 @@
       - /opt/nexusdata/nexus3/etc/ssl
       - /opt/nexusdata/nexus3/keystores
     when: restore | bool
+    tags:
+      - restore
   - name: Criar o diretório /opt/nexusdata/restore-from-backup
     ansible.builtin.file:
       path: "/opt/nexusdata/nexus3/restore-from-backup"
       state: directory
     when: restore | bool
+    tags:
+      - restore
   - name: Copiar as pastas blobs etc keystores e arquivos .bak
     ansible.builtin.copy:
       src: "{{ item.src }}"
@@ -96,6 +108,8 @@
       - { src: '/tmp/nexus3/etc',   dest: '/opt/nexusdata/nexus3/' }
       - { src: '/tmp/nexus3/keystores', dest: '/opt/nexusdata/nexus3/' }
     when: restore | bool
+    tags:
+      - restore
   - name: Remover as pastas /tmp/blobs, /tmp/db e /tmp/etc
     ansible.builtin.file:
       path: "{{ item }}"
@@ -105,11 +119,15 @@
       - '/tmp/nexus3'
       - '/tmp/latest_archive.tar.gz'
     when: restore | bool
+    tags:
+      - restore
   - name: Remover pasta /tmp/etc
     ansible.builtin.file:
       path: /tmp/etc
       state: absent
     when: restore | bool
+    tags:
+      - restore
   - name: Alterar owner e group de /opt/nexusdata para nexus
     ansible.builtin.file:
       path: /opt/nexusdata
@@ -117,6 +135,8 @@
       group: nexus
       recurse: yes
     when: restore | bool
+    tags:
+      - restore
   - name: Iniciar serviço nexus
     systemd:
       name: nexus
@@ -124,13 +144,19 @@
       enabled: yes
       state: started
     when: restore | bool
+    tags:
+      - restore
   - name: Aguardar 4 minutos
     pause:
       seconds: 240
     when: restore | bool
+    tags:
+      - restore
   - name: Apagar o diretório /opt/nexusdata/restore-from-backup
     ansible.builtin.file:
       path: "/opt/nexusdata/nexus3/restore-from-backup"
       state: absent
     when: restore | bool
+    tags:
+      - restore
 

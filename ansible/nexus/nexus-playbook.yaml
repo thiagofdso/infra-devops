@@ -5,8 +5,12 @@
     host: nexus
     git_user: user
     git_pass: pass
+  tags:
+    - config
 - name: Configurar CA
   import_playbook: ../general/ca-playbook.yaml
+  tags:
+    - config
 - name: Instalação do Nexus
   hosts: nexus
   become: true  
