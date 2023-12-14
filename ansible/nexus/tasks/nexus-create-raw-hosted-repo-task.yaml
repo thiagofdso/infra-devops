@@ -1,0 +1,34 @@
+---
+- name: "{{ 'Atualizar' if update|bool else 'Criar'}} repositório {{ item.name }}"
+  uri:
+    url: "https://dev-nexus.desenv.com/service/rest/v1/repositories/raw/hosted{{ '/'+item.name if update|bool else '' }}"
+    method: "{{ 'PUT' if update|bool else 'POST' }}"
+    validate_certs: false
+    use_netrc: true
+    status_code:
+      - 201
+      - 204
+    headers:
+      accept: "application/json"
+      Content-Type: "application/json"
+      NX-ANTI-CSRF-TOKEN: "0.7944781578949698"
+      X-Nexus-UI: "true"
+    body_format: json
+    body:
+      name: "{{ item.name }}"
+      online: true
+      storage:
+        blobStoreName: "{{ item.name }}"
+        strictContentTypeValidation: false
+        writePolicy: "{% if 'snapshot' in item.name %}ALLOW{% elif 'release' in item.name %}ALLOW_ONCE{% endif %}"
+      cleanup: null
+      component:
+        proprietaryComponents: false
+      raw:
+        contentDisposition: "ATTACHMENT"
+      format: "raw"
+      type: "hosted"
+  ignore_errors: true
+  tags:
+    - repositories
+    - raw-hosted

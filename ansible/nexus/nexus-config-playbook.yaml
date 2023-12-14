@@ -3,10 +3,11 @@
   gather_facts: false
   vars:
      host: all
+     update: false
   hosts: "{{ host }}"
   tasks:
     - name: Criar blobstores
-      include_tasks: nexus-create-blobstore-task.yaml
+      include_tasks: tasks/nexus-create-blobstore-task.yaml
       vars:
         nexus_blobstores:
          - url: "/opt/nexusdata/nexus3/blobs/release/raw-release"
@@ -41,8 +42,30 @@
          - url: "/opt/nexusdata/nexus3/blobs/release/npm-group"
          - url: "/opt/nexusdata/nexus3/blobs/release/raw-group"
       loop: "{{ nexus_blobstores }}"
-    - name: Criar repositório maven proxy 
-      include_tasks: nexus-create-maven-proxy-repo-task.yaml
+      tags:
+        - blobstores
+    - name: Criar repositórios raw hosted
+      include_tasks: tasks/nexus-create-raw-hosted-repo-task.yaml
+      vars:
+        nexus_repositories:
+          - name: "raw-release"
+          - name: "raw-snapshot"
+      loop: "{{ nexus_repositories }}"
+      tags:
+        - repositories
+        - raw-hosted
+    - name: Criar repositórios npm hosted
+      include_tasks: tasks/nexus-create-npm-hosted-repo-task.yaml
+      vars:
+        nexus_repositories:
+          - name: "npm-release"
+          - name: "npm-snapshot"
+      loop: "{{ nexus_repositories }}"
+      tags:
+        - repositories
+        - npm-hosted
+    - name: Criar repositórios maven proxy 
+      include_tasks: tasks/nexus-create-maven-proxy-repo-task.yaml
       vars:
         nexus_repositories:
           - name: "maven2-proxy-central"
@@ -64,3 +87,6 @@
           - name: "maven2-proxy-jboss"
             url: "https://repository.jboss.org/nexus/content/groups/public/"
       loop: "{{ nexus_repositories}}"
+      tags:
+        - repositories
+        - maven-proxy

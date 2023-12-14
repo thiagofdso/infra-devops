@@ -46,3 +46,6 @@
       format: "maven2"
       type: "proxy"
   ignore_errors: true
+  tags:
+    - repositories
+    - maven-proxy

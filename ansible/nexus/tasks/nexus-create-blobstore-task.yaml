@@ -19,4 +19,5 @@
     return_content: yes
   register: curl_result
   ignore_errors: true
-
+  tags:
+    - blobstores

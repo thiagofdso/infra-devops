@@ -1,5 +1,5 @@
 - name: Incluir playbook gitlab-playbook.yaml
-  import_playbook: gitlab-playbook.yaml
+  import_playbook: ../general/gitlab-playbook.yaml
   vars:
     host: nexus
     git_user: user
