@@ -1,3 +1,4 @@
+# code: language=ansible
 - name: "{{ 'Atualizar' if update|bool else 'Criar'}} repositório {{ item.name }}" 
   uri:
     url: "https://dev-nexus.desenv.com/service/rest/v1/repositories/npm/hosted{{ '/'+item.name if update|bool else '' }}"

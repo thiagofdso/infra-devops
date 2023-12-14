@@ -1,3 +1,4 @@
+# code: language=ansible
 ---
 - name: "{{ 'Atualizar' if update|bool else 'Criar'}} repositório {{ item.name }}"
   uri:

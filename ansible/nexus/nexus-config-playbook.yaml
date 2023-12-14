@@ -1,3 +1,4 @@
+# code: language=ansible
 - name: Configurar Nexus
   become: true
   gather_facts: false
@@ -54,6 +55,36 @@
       tags:
         - repositories
         - raw-hosted
+    - name: Criar repositórios maven2 hosted
+      include_tasks: tasks/nexus-create-maven-hosted-repo-task.yaml
+      vars:
+        nexus_repositories:
+          - name: "maven-release"
+          - name: "maven-snapshot"
+      loop: "{{ nexus_repositories }}"
+      tags:
+        - repositories
+        - maven-hosted
+    - name: Criar repositórios nuget hosted
+      include_tasks: tasks/nexus-create-nuget-hosted-repo-task.yaml
+      vars:
+        nexus_repositories:
+          - name: "nuget-release"
+          - name: "nuget-snapshot"
+      loop: "{{ nexus_repositories }}"
+      tags:
+        - repositories
+        - nuget-hosted
+    - name: Criar repositórios helm hosted
+      include_tasks: tasks/nexus-create-helm-hosted-repo-task.yaml
+      vars:
+        nexus_repositories:
+          - name: "helm-release"
+          - name: "helm-snapshot"
+      loop: "{{ nexus_repositories }}"
+      tags:
+        - repositories
+        - helm-hosted
     - name: Criar repositórios npm hosted
       include_tasks: tasks/nexus-create-npm-hosted-repo-task.yaml
       vars:
@@ -64,6 +95,15 @@
       tags:
         - repositories
         - npm-hosted
+    - name: Criar repositórios docker hosted
+      include_tasks: tasks/nexus-create-docker-hosted-repo-task.yaml
+      vars:
+        nexus_repositories:
+          - name: "registry-openshift"
+      loop: "{{ nexus_repositories }}"
+      tags:
+        - repositories
+        - docker-hosted
     - name: Criar repositórios maven proxy 
       include_tasks: tasks/nexus-create-maven-proxy-repo-task.yaml
       vars:

@@ -1,3 +1,4 @@
+# code: language=ansible
 - name: Baixar repositorio infra-devops
   become: true
   gather_facts: false

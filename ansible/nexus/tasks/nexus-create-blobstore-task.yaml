@@ -1,3 +1,4 @@
+# code: language=ansible
 ---
 - name: Criar blobstore  {{ item.url | regex_replace('.*/', '') }} no Nexus
   uri:
@@ -17,7 +18,6 @@
       path: "{{ item.url }}"
       name: "{{ item.url | regex_replace('.*/', '') }}"  # Ajuste para evitar caracteres inválidos no nome
     return_content: yes
-  register: curl_result
   ignore_errors: true
   tags:
     - blobstores

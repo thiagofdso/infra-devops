@@ -1,3 +1,4 @@
+# code: language=ansible
 - name: Configurar CA
   become: true
   gather_facts: false

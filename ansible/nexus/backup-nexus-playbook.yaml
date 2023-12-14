@@ -1,3 +1,4 @@
+# code: language=ansible
 - name: Configuração de backup do nexus
   become: true  
   gather_facts: true

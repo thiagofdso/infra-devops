@@ -2,7 +2,7 @@
 ---
 - name: "{{ 'Atualizar' if update|bool else 'Criar'}} repositório {{ item.name }}"
   uri:
-    url: "https://dev-nexus.desenv.com/service/rest/v1/repositories/nuget/hosted{{ '/'+item.name if update|bool else '' }}"
+    url: "https://dev-nexus.desenv.com/service/rest/v1/repositories/docker/hosted{{ '/'+item.name if update|bool else '' }}"
     method: "{{ 'PUT' if update|bool else 'POST' }}"
     validate_certs: false
     use_netrc: true
@@ -20,4 +20,4 @@
   ignore_errors: true
   tags:
     - repositories
-    - nuget-hosted
+    - maven-hosted

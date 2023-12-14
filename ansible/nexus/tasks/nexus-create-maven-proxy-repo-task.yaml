@@ -1,3 +1,4 @@
+# code: language=ansible
 ---
 - name: Criar repositório {{ item.name }}
   uri:

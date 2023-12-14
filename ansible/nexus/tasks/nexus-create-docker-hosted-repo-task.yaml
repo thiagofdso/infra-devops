@@ -1,2 +1,23 @@
+# code: language=ansible
 ---
+- name: "{{ 'Atualizar' if update|bool else 'Criar'}} repositório {{ item.name }}"
+  uri:
+    url: "https://dev-nexus.desenv.com/service/rest/v1/repositories/docker/hosted{{ '/'+item.name if update|bool else '' }}"
+    method: "{{ 'PUT' if update|bool else 'POST' }}"
+    validate_certs: false
+    use_netrc: true
+    status_code:
+      - 201
+      - 204
+    headers:
+      accept: "application/json"
+      Content-Type: "application/json"
+      NX-ANTI-CSRF-TOKEN: "0.7944781578949698"
+      X-Nexus-UI: "true"
+    body_format: json
+    body:
 
+  ignore_errors: true
+  tags:
+    - repositories
+    - docker-hosted

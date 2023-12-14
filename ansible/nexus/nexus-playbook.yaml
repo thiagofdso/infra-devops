@@ -1,9 +1,12 @@
+# code: language=ansible
 - name: Incluir playbook gitlab-playbook.yaml
   import_playbook: ../general/gitlab-playbook.yaml
   vars:
     host: nexus
     git_user: user
     git_pass: pass
+- name: Configurar CA
+  import_playbook: ../general/ca-playbook.yaml
 - name: Instalação do Nexus
   hosts: nexus
   become: true  
