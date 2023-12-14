@@ -46,3 +46,9 @@
       repo: https://{{ git_user }}:{{ git_pass }}@gitlab.banpara.com/recursos/devops-banpara/infra-devops
       dest: /tmp/infra-devops
       version: nexus
+  - name: Adicionar configuração CURL_CA_BUNDLE ao arquivo /etc/environment
+    lineinfile:
+      dest: /etc/environment
+      line: 'GIT_SSL_CAINFO=/etc/ssl/certs/banparaca.pem'
+      state: present
+

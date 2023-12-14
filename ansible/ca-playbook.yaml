@@ -1,0 +1,48 @@
+- name: Configurar CA
+  become: true
+  gather_facts: false
+  vars:
+     host: all
+  hosts: "{{ host }}"
+  environment:
+    CURL_CA_BUNDLE: /usr/local/share/ca-certificates/banparaca.pem
+  tasks:
+  - name: Cria o diretório /usr/local/share/ca-certificates
+    file:
+      path: /usr/local/share/ca-certificates
+      state: directory
+      mode: 0755  # Permissões para o diretório
+  - name: Criar arquivo banparaca.pem
+    copy:
+      content: |
+        -----BEGIN CERTIFICATE-----
+        MIID+jCCAq6gAwIBAgIQN+CznPawop1CI0g9onO4tDBBBgkqhkiG9w0BAQowNKAP
+        MA0GCWCGSAFlAwQCAQUAoRwwGgYJKoZIhvcNAQEIMA0GCWCGSAFlAwQCAQUAogMC
+        ASAwGDEWMBQGA1UEAxMNQmFucGFyYVJvb3RDQTAeFw0xNzA4MjgxNjE0MTlaFw0z
+        MjA4MjgxNjI0MTlaMBgxFjAUBgNVBAMTDUJhbnBhcmFSb290Q0EwggEiMA0GCSqG
+        SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCkTALAdxCkiVvI+u932dvltvn3IUxYX+vd
+        slImdu8Hk4vgob+3HaEO3MrhNyK6wimxSnB/XrWgt7S6LrXJ9JAuME0MFqTt0zQ0
+        oqxwjSECyVCr3Hp0WeZlPrjC3Bug4huBnonzLtyhILqFy3iVvvjnQjSqyP7jVc0w
+        r2FS41a4/KIcSpwKDBfOyN8mxaAzMTGbRtN+uxrYYxJZRdKP8+TenXAnVVxyYyZ8
+        s9AN16PD6IiCpJKBewcGs4Nsxpf4krrjouIqRLhYXv58gaxuzdeKNNK6FPMDokzO
+        33j0LRWusFL965Ne5VAco2f0Muk1c6kFjER30mZ2dCLJU2yuj4d7AgMBAAGjgdcw
+        gdQwCwYDVR0PBAQDAgGGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFMtnrNRc
+        U/nrVHKwj7fKUX/+39j1MBAGCSsGAQQBgjcVAQQDAgEAMIGCBgNVHSAEezB5MHcG
+        CCoDBIsvQ1kFMGswOgYIKwYBBQUHAgIwLh4sAEwAZQBnAGEAbAAgAFAAbwBsAGkA
+        YwB5ACAAUwB0AGEAdABlAG0AZQBuAHQwLQYIKwYBBQUHAgEWIWh0dHA6Ly9kYy0w
+        Mi5iYW5wYXJhLmNvbS9jcHMudHh0ADBBBgkqhkiG9w0BAQowNKAPMA0GCWCGSAFl
+        AwQCAQUAoRwwGgYJKoZIhvcNAQEIMA0GCWCGSAFlAwQCAQUAogMCASADggEBAE/A
+        fucgceoLBC697/MFDjnBVhYNff2dZ6knhZ5POjU9gvIUyljQsd2svVMa30L5l91T
+        /fYZV0pPSEYL/Ny5g8g/86Rg4GTOpTq3EowjTP0OgU0Eeu4iqwJHFeK1d9EmVWQD
+        JGFwHzJgaiBaxa18hWZcNm37d0Gn28mgQlzjdqjdhj8iMX+3wbzriuifTn8myF8A
+        pzi19rYRAot9tPWv1ljrDuwYY2ybR6gtGN4FlgTiQ3JNIP0P5/lfhfdhmWghuCOd
+        eI//Sd+y9urHD0GeuWn+Q+Q4o0M1gHjWwwvQue3Bcyeat6cMaqsqsco/d3ETnG3S
+        cBhsx/Nj771ixtrGI6g=
+        -----END CERTIFICATE-----
+      dest: /usr/local/share/ca-certificates/banparaca.pem
+      mode: 0644
+  - name: Adicionar configuração CURL_CA_BUNDLE ao arquivo /etc/environment
+    lineinfile:
+      dest: /etc/environment
+      line: 'CURL_CA_BUNDLE=/usr/local/share/ca-certificates/banparaca.pem'
+      state: present

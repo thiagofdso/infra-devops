@@ -1,0 +1,48 @@
+---
+- name: Criar repositório {{ item.name }}
+  uri:
+    url: "https://dev-nexus.desenv.com/service/rest/v1/repositories/maven/proxy"
+    method: POST
+    validate_certs: false
+    use_netrc: true
+    status_code:
+      - 201
+    headers:
+      accept: "application/json"
+      Content-Type: "application/json"
+      NX-ANTI-CSRF-TOKEN: "0.7944781578949698"
+      X-Nexus-UI: "true"
+    body_format: json
+    body:
+      name: "{{ item.name }}"
+      online: true
+      storage:
+        blobStoreName: "{{ item.name }}"
+        strictContentTypeValidation: true
+        writePolicy: "ALLOW"
+      proxy:
+        remoteUrl: "{{ item.url }}"
+        contentMaxAge: -1
+        metadataMaxAge: 1440
+      negativeCache:
+        enabled: true
+        timeToLive: 1440
+      httpClient:
+        blocked: false
+        autoBlock: true
+        connection:
+          retries: null
+          userAgentSuffix: null
+          timeout: null
+          enableCircularRedirects: false
+          enableCookies: false
+          useTrustStore: true
+        authentication: null
+      routingRuleName: null
+      maven:
+        versionPolicy: "RELEASE"
+        layoutPolicy: "STRICT"
+        contentDisposition: "INLINE"
+      format: "maven2"
+      type: "proxy"
+  ignore_errors: true

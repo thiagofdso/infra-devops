@@ -1,0 +1,22 @@
+---
+- name: Criar blobstore  {{ item.url | regex_replace('.*/', '') }} no Nexus
+  uri:
+    url: "https://dev-nexus.desenv.com/service/rest/v1/blobstores/file"
+    method: POST
+    validate_certs: false
+    use_netrc: true
+    status_code:
+      - 204
+    headers:
+      accept: "application/json"
+      Content-Type: "application/json"
+      NX-ANTI-CSRF-TOKEN: "0.7944781578949698"
+      X-Nexus-UI: "true"
+    body_format: json
+    body:
+      path: "{{ item.url }}"
+      name: "{{ item.url | regex_replace('.*/', '') }}"  # Ajuste para evitar caracteres inválidos no nome
+    return_content: yes
+  register: curl_result
+  ignore_errors: true
+

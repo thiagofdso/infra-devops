@@ -1,0 +1,66 @@
+- name: Configurar Nexus
+  become: true
+  gather_facts: false
+  vars:
+     host: all
+  hosts: "{{ host }}"
+  tasks:
+    - name: Criar blobstores
+      include_tasks: nexus-create-blobstore-task.yaml
+      vars:
+        nexus_blobstores:
+         - url: "/opt/nexusdata/nexus3/blobs/release/raw-release"
+         - url: "/opt/nexusdata/nexus3/blobs/snapshot/raw-snapshot"
+         - url: "/opt/nexusdata/nexus3/blobs/snapshot/npm-snapshot"
+         - url: "/opt/nexusdata/nexus3/blobs/release/npm-release"
+         - url: "/opt/nexusdata/nexus3/blobs/release/nuget-release"
+         - url: "/opt/nexusdata/nexus3/blobs/snapshot/nuget-snapshot"
+         - url: "/opt/nexusdata/nexus3/blobs/snapshot/maven2-snapshot"
+         - url: "/opt/nexusdata/nexus3/blobs/release/maven2-release"
+         - url: "/opt/nexusdata/nexus3/blobs/release/helm-release"
+         - url: "/opt/nexusdata/nexus3/blobs/snapshot/helm-snapshot"
+         - url: "/opt/nexusdata/nexus3/blobs/container/registry-banpara"
+         - url: "/opt/nexusdata/nexus3/blobs/proxy/maven2-proxy-jasperreports"
+         - url: "/opt/nexusdata/nexus3/blobs/proxy/npm-proxy-npmjs"
+         - url: "/opt/nexusdata/nexus3/blobs/proxy/maven2-proxy-primefaces"
+         - url: "/opt/nexusdata/nexus3/blobs/proxy/nuget-proxy-org"
+         - url: "/opt/nexusdata/nexus3/blobs/proxy/nuget-proxy-api"
+         - url: "/opt/nexusdata/nexus3/blobs/proxy/nuget-proxy-vibe-v2"
+         - url: "/opt/nexusdata/nexus3/blobs/proxy/nuget-proxy-vibe-v3"
+         - url: "/opt/nexusdata/nexus3/blobs/proxy/maven2-proxy-jboss"
+         - url: "/opt/nexusdata/nexus3/blobs/proxy/maven2-proxy-flutter-infra"
+         - url: "/opt/nexusdata/nexus3/blobs/proxy/maven2-proxy-apache"
+         - url: "/opt/nexusdata/nexus3/blobs/proxy/npm-proxy-fontawesome"
+         - url: "/opt/nexusdata/nexus3/blobs/proxy/maven2-proxy-redhat"
+         - url: "/opt/nexusdata/nexus3/blobs/proxy/npm-proxy-yarnpkg"
+         - url: "/opt/nexusdata/nexus3/blobs/proxy/maven2-proxy-central"
+         - url: "/opt/nexusdata/nexus3/blobs/proxy/maven2-proxy-pdcase"
+         - url: "/opt/nexusdata/nexus3/blobs/proxy/maven2-proxy-flutter-pub-dev"
+         - url: "/opt/nexusdata/nexus3/blobs/release/maven2-group"
+         - url: "/opt/nexusdata/nexus3/blobs/release/nuget-group"
+         - url: "/opt/nexusdata/nexus3/blobs/release/npm-group"
+         - url: "/opt/nexusdata/nexus3/blobs/release/raw-group"
+      loop: "{{ nexus_blobstores }}"
+    - name: Criar repositório maven proxy 
+      include_tasks: nexus-create-maven-proxy-repo-task.yaml
+      vars:
+        nexus_repositories:
+          - name: "maven2-proxy-central"
+            url: "https://repo1.maven.org/maven2/"
+          - name: "maven2-proxy-apache"
+            url: "https://repo.maven.apache.org/maven2/"
+          - name: "maven2-proxy-redhat"
+            url: "https://maven.repository.redhat.com/ga/"
+          - name: "maven2-proxy-flutter-pub-dev"
+            url: "https://pub.dev/api/packages/test/"
+          - name: "maven2-proxy-jasperreports"
+            url: "https://jaspersoft.jfrog.io/ui/native/jaspersoft-repo"
+          - name: "maven2-proxy-primefaces"
+            url: "http://repository.primefaces.org"
+          - name: "maven2-proxy-flutter-infra"
+            url: "https://storage.googleapis.com/flutter_infra/releases"
+          - name: "maven2-proxy-pdcase"
+            url: "https://www.pdcase.com/nexus/"
+          - name: "maven2-proxy-jboss"
+            url: "https://repository.jboss.org/nexus/content/groups/public/"
+      loop: "{{ nexus_repositories}}"
